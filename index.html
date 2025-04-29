@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Standorte auf Deutschlandkarte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/tabletop@1.6.0/tabletop.js"></script>
+
+  <style>
+    #map { height: 90vh; width: 100%; }
+    #info { padding: 10px; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Gib Deinen Spielernamen an</h2>
+  <div style="text-align:center; margin-bottom:10px;">
+     <label>Spielername (optional): 
+       <input type="text" id="spielerName" placeholder="z.B. Runner" />
+     </label>
+  </div>
+  <h2 style="text-align:center;">Klicke deinen Standort ungefähr an</h2>
+  <div id="map"></div>
+  <div id="info">Letzter Klick: <span id="coords">-</span></div>
+
+  <script>
+    const sheetID = '1FWJ4wITDLekDidgoVY2h64EmPjPV1Ee-IOz8tDI1c0s'; // <- hier einfügen!
+    const formURL = 'https://docs.google.com/forms/d/e/1eHl86G0vzQkdx3YN1_4zrKQWyQ1QRoSoCFRkYPwIpBw/formResponse'; // <- hier einfügen!
+    const coordsField = 'entry.123456'; // <- ersetzen durch deine Feld-ID
+    const nameField = 'entry.654321'; // ← Ersetze mit der Google Form-Feld-ID für „Avatarname“
+
+    const map = L.map('map').setView([51.1657, 10.4515], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    let marker;
+    map.on('click', function(e) {
+      const latlng = e.latlng;
+
+      if (marker) {
+        marker.setLatLng(latlng);
+      } else {
+        marker = L.marker(latlng).addTo(map);
+      }
+
+      document.getElementById('coords').textContent =
+        latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4);
+
+      // an Google Form senden
+      const data = new FormData();   
+      const nameInput = document.getElementById('spielerName').value.trim();
+      data.append(coordsField, latlng.lat + ',' + latlng.lng);
+      if (nameInput) {
+         data.append(nameField, nameInput); // ← nameField musst du definieren!
+      }
+
+      fetch(formURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+    });
+
+    // Einträge aus Google Tabelle anzeigen
+    function showMarkers(data) {
+      data.forEach(entry => {
+        const coords = entry['StandortKoordinaten']; // Spaltenname aus Google Sheet
+        if (coords) {
+          const [lat, lng] = coords.split(',').map(Number);
+          if (!isNaN(lat) && !isNaN(lng)) {
+             const name = entry['Spielername']; // Spaltenname exakt wie in der Tabelle
+             L.circleMarker([lat, lng], {
+                radius: 6,
+                color: 'blue'
+             }).addTo(map)
+               .bindPopup(name ? `Name: ${name}` : 'Kein Name');
+          }
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      Tabletop.init({
+        key: sheetID,
+        simpleSheet: true,
+        callback: showMarkers
+      });
+    });
+  </script>
+</body>
+</html>
