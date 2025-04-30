@@ -28,7 +28,10 @@
     Status: <span id="statustxt">Bereit</span>
   </div>
 
-  <form id="hiddenForm" action="https://docs.google.com/forms/d/e/1eHl86G0vzQkdx3YN1_4zrKQWyQ1QRoSoCFRkYPwIpBw/formResponse" method="POST" target="hidden_iframe" style="display:none">
+  <form id="hiddenForm" 
+     action="https://docs.google.com/forms/d/e/1eHl86G0vzQkdx3YN1_4zrKQWyQ1QRoSoCFRkYPwIpBw/formResponse" 
+     method="POST"
+     style="display:none">
      <input type="text" name="entry.403967903" id="inputCoords">
      <input type="text" name="entry.1438475443" id="inputName">
   </form>
@@ -76,8 +79,29 @@
       document.getElementById('inputName').value   = nameInput;
       // Status setzen
       document.getElementById('statustxt').textContent = 'Sende…';
-      // Formular absenden
-      document.getElementById('hiddenForm').submit();
+      // 1) Neues, verstecktes iFrame anlegen
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      // wichtig: unique Name pro iframe
+      const uniqueName = 'ifr_' + Date.now();
+      iframe.name = uniqueName;
+
+      // 2) onload-Listener ans iFrame hängen
+      iframe.onload = function() {
+        document.getElementById('statustxt').textContent = 'Erledigt ✓';
+        // nach 3 s zurücksetzen
+        setTimeout(()=> document.getElementById('statustxt').textContent = 'Bereit', 3000);
+        // aufräumen: iFrame aus DOM entfernen
+        document.body.removeChild(iframe);
+      };
+
+      // 3) iFrame ins Dokument hängen
+      document.body.appendChild(iframe);
+
+      // 4) Form-Target dynamisch setzen und absenden
+      const form = document.getElementById('hiddenForm');
+      form.target = uniqueName;
+      form.submit();
     });
 
     // Wenn das iFrame geladen hat, Formular-Submit abgeschlossen
