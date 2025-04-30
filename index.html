@@ -144,7 +144,7 @@ setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
 
       entries.forEach(entry => {
         if (entry.Koordinaten) {
-          const [lat, lng] = entry.coords.split(',').map(Number);
+          const [lat, lng] = entry.StandortKoordinaten.split(',').map(Number);
           const name = entry.Spielername|| 'Ohne Name';
           const marker = L.marker([lat, lng]).bindPopup(name);
           markerGroup.addLayer(marker);
