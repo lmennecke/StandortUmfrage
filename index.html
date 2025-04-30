@@ -69,12 +69,12 @@
          data.append(nameField, nameInput); // ← nameField musst du definieren!
       }
 
-      //fetch(formURL, {
-      //  method: 'POST',
-      //  mode: 'no-cors',
-      //  body: data
-      //});
-      // Formular-Felder füllen
+      fetch(formURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+      });
+/*      // Formular-Felder füllen
       document.getElementById('inputCoords').value = latlng.lat + ',' + latlng.lng;
       document.getElementById('inputName').value   = nameInput;
       // Status setzen
@@ -101,7 +101,7 @@
       // 4) Form-Target dynamisch setzen und absenden
       const form = document.getElementById('hiddenForm');
       form.target = uniqueName;
-      form.submit();
+      form.submit();*/
     });
 
     // Wenn das iFrame geladen hat, Formular-Submit abgeschlossen
