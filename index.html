@@ -121,6 +121,18 @@ setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
       }, 3000);
     });
 
+  function parseCSV(text) {
+    const rows = text.trim().split('\n');
+    const headers = rows[0].split(',');
+    const data = rows.slice(1).map(row => {
+      const values = row.split(',');
+      let obj = {};
+      headers.forEach((h, i) => obj[h.trim()] = values[i]?.trim());
+      return obj;
+    });
+    return data;
+  }
+    
     function loadData() {
   fetch(csvURL)
     .then(res => res.text())
