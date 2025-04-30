@@ -23,6 +23,10 @@
   <h2 style="text-align:center;">Klicke deinen Standort ungefähr an</h2>
   <div id="map"></div>
   <div id="info">Letzter Klick: <span id="coords">-</span></div>
+  <!-- Statusanzeige -->
+  <div id="status">
+    Status: <span id="statustxt">Bereit</span>
+  </div>
 
   <script>
     const sheetID = '1FWJ4wITDLekDidgoVY2h64EmPjPV1Ee-IOz8tDI1c0s'; // <- hier einfügen!
@@ -64,10 +68,21 @@
       // Formular-Felder füllen
       document.getElementById('inputCoords').value = latlng.lat + ',' + latlng.lng;
       document.getElementById('inputName').value   = nameInput;
+      // Status setzen
+      document.getElementById('statustxt').textContent = 'Sende…';
       // Formular absenden
       document.getElementById('hiddenForm').submit();
     });
 
+    // Wenn das iFrame geladen hat, Formular-Submit abgeschlossen
+    document.getElementsByName('hidden_iframe')[0].addEventListener('load', function() {
+      document.getElementById('statustxt').textContent = 'Erledigt ✓';
+      // nach 3 Sekunden wieder zurücksetzen
+      setTimeout(function() {
+        document.getElementById('statustxt').textContent = 'Bereit';
+      }, 3000);
+    });
+    
     // Einträge aus Google Tabelle anzeigen
     function showMarkers(data) {
       data.forEach(entry => {
