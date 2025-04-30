@@ -56,11 +56,16 @@
          data.append(nameField, nameInput); // ← nameField musst du definieren!
       }
 
-      fetch(formURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: data
-      });
+      //fetch(formURL, {
+      //  method: 'POST',
+      //  mode: 'no-cors',
+      //  body: data
+      //});
+      // Formular-Felder füllen
+      document.getElementById('inputCoords').value = latlng.lat + ',' + latlng.lng;
+      document.getElementById('inputName').value   = nameInput;
+      // Formular absenden
+      document.getElementById('hiddenForm').submit();
     });
 
     // Einträge aus Google Tabelle anzeigen
@@ -89,5 +94,11 @@
       });
     });
   </script>
+
+  <form id="hiddenForm" action="https://docs.google.com/forms/d/e/1eHl86G0vzQkdx3YN1_4zrKQWyQ1QRoSoCFRkYPwIpBw/formResponse" method="POST" target="hidden_iframe" style="display:none">
+     <input type="text" name="entry.403967903" id="inputCoords">
+     <input type="text" name="entry.1438475443" id="inputName">
+  </form>
+<iframe name="hidden_iframe" style="display:none"></iframe>
 </body>
 </html>
