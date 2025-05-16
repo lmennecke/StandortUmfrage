@@ -60,7 +60,7 @@ setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
 map.on('click', function(e) {const nameField = document.getElementById('spielerName');
 if (!nameField || !nameField.value.trim()) {
   alert("Bitte gib zuerst einen Spielernamen ein.");
-  document.getElementById('statustxt').textContent = 'Fehlender Spielername';
+  //document.getElementById('statustxt').textContent = 'Fehlender Spielername';
   return;
 }
 const nameInput = nameField.value.trim();
