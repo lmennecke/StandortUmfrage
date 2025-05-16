@@ -106,7 +106,7 @@ const nameInput = nameField.value.trim();
 });
 
 
-  function parseCSV(text) {
+  function parseCSV(csvText) {
      const parsed = Papa.parse(csvText, {
        header: true,              // Uses first row as keys
        skipEmptyLines: true,      // Ignore blank rows
@@ -118,7 +118,7 @@ const nameInput = nameField.value.trim();
          '⚠️ CSV Parsing Error: ' + JSON.stringify(parsed.errors, null, 2);
      }
 
-  return parsed.data;
+     return parsed.data;
   }
     
     function loadData() {
