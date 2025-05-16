@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
   <style>
     #map { height: 65vh; width: 65vw; }
@@ -106,15 +107,18 @@ const nameInput = nameField.value.trim();
 
 
   function parseCSV(text) {
-    const rows = text.trim().split('\n');
-    const headers = rows[0].split(',');
-    const data = rows.slice(1).map(row => {
-      const values = row.split(',');
-      let obj = {};
-      headers.forEach((h, i) => obj[h.trim()] = values[i]?.trim());
-      return obj;
-    });
-    return data;
+     const parsed = Papa.parse(csvText, {
+       header: true,              // Uses first row as keys
+       skipEmptyLines: true,      // Ignore blank rows
+       dynamicTyping: false       // Keeps everything as strings
+     });
+
+     if (parsed.errors.length > 0) {
+       document.getElementById('debug').textContent += 
+         '⚠️ CSV Parsing Error: ' + JSON.stringify(parsed.errors, null, 2);
+     }
+
+  return parsed.data;
   }
     
     function loadData() {
