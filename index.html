@@ -139,7 +139,7 @@ const nameInput = nameField.value.trim();
     })
     .catch(err => {
       //console.error("Fehler beim Laden der Daten:", err)
-      document.getElementById('debug').textContent = "Fehler beim Laden:\n" + err;
+      document.getElementById('debug').textContent += "\n\nFehler beim Laden:\n" + err;
     });
 }
 /*    
