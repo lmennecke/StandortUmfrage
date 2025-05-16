@@ -58,6 +58,12 @@ setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
 
     let marker;
 map.on('click', function(e) {
+  const nameInput = document.getElementById('spielerName').value.trim();
+  if (!nameInput) {
+    alert("Bitte gib zuerst einen Spielernamen ein.");
+    return;
+  }
+  
   const latlng = e.latlng;
 
   if (marker) {
