@@ -26,6 +26,7 @@
   <div id="status">
     Status: <span id="statustxt">Bereit</span>
   </div>
+  <div id="debug" style="white-space: pre-wrap; font-family: monospace; background:#eee; padding:10px;"></div>
 
   <form id="hiddenForm" 
      action="https://docs.google.com/forms/d/1eHl86G0vzQkdx3YN1_4zrKQWyQ1QRoSoCFRkYPwIpBw/formResponse" 
@@ -120,8 +121,10 @@ const nameInput = nameField.value.trim();
   fetch(csvURL)
     .then(res => res.text())
     .then(csvText => {
+      document.getElementById('debug').textContent = "CSV geladen:\n" + csvText;
       const entries = parseCSV(csvText);
-
+      document.getElementById('debug').textContent += "\n\nGeparst:\n" + JSON.stringify(entries, null, 2);
+      
       // Karte leeren (nur Marker löschen)
       markerGroup.clearLayers();
 
@@ -134,7 +137,10 @@ const nameInput = nameField.value.trim();
         }
       });
     })
-    .catch(err => console.error("Fehler beim Laden der Daten:", err));
+    .catch(err => {
+      //console.error("Fehler beim Laden der Daten:", err)
+      document.getElementById('debug').textContent = "Fehler beim Laden:\n" + err;
+    });
 }
 /*    
     // Einträge aus Google Tabelle anzeigen
