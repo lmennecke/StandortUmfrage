@@ -55,10 +55,11 @@ loadData(); // Erste Ladung
 setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
 
     let marker;
-map.on('click', function(e) {const nameField = document.getElementById('spielerName');
+map.on('click', function(e) {
+  const nameField = document.getElementById('spielerName');
 if (!nameField || !nameField.value.trim()) {
   alert("Bitte gib zuerst einen Spielernamen ein.");
-  //document.getElementById('statustxt').textContent = 'Fehlender Spielername';
+  document.getElementById('statustxt').textContent = 'Fehlender Spielername';
   return;
 }
 const nameInput = nameField.value.trim();
@@ -74,13 +75,13 @@ const nameInput = nameField.value.trim();
   document.getElementById('coords').textContent =
     latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4);
 
-  const nameInput = document.getElementById('spielerName').value.trim();
+  //const nameInput = document.getElementById('spielerName').value.trim();
 
-  if (!nameInput) {
-    alert("Bitte gib zuerst einen Spielernamen ein.");
-    document.getElementById('statustxt').textContent = 'Fehlender Spielername';
-    return;
-  }
+  //if (!nameInput) {
+  //  alert("Bitte gib zuerst einen Spielernamen ein.");
+  //  document.getElementById('statustxt').textContent = 'Fehlender Spielername';
+  //  return;
+  //}
 
   const data = new FormData();
   data.append(coordsField, latlng.lat + ',' + latlng.lng);
