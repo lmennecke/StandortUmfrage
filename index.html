@@ -57,69 +57,46 @@ loadData(); // Erste Ladung
 setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
 
     let marker;
-    map.on('click', function(e) {
-      const latlng = e.latlng;
+map.on('click', function(e) {
+  const latlng = e.latlng;
 
-      if (marker) {
-        marker.setLatLng(latlng);
-      } else {
-        marker = L.marker(latlng).addTo(map);
-      }
+  if (marker) {
+    marker.setLatLng(latlng);
+  } else {
+    marker = L.marker(latlng).addTo(map);
+  }
 
-      document.getElementById('coords').textContent =
-        latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4);
+  document.getElementById('coords').textContent =
+    latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4);
 
-      // an Google Form senden
-      const data = new FormData();   
-      const nameInput = document.getElementById('spielerName').value.trim();
-      data.append(coordsField, latlng.lat + ',' + latlng.lng);
-      if (nameInput) {
-         data.append(nameField, nameInput); // ← nameField musst du definieren!
-      }
+  const nameInput = document.getElementById('spielerName').value.trim();
 
-      fetch(formURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: data
-      });
-/*      // Formular-Felder füllen
-      document.getElementById('inputCoords').value = latlng.lat + ',' + latlng.lng;
-      document.getElementById('inputName').value   = nameInput;
-      // Status setzen
-      document.getElementById('statustxt').textContent = 'Sende…';
-      // 1) Neues, verstecktes iFrame anlegen
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      // wichtig: unique Name pro iframe
-      const uniqueName = 'ifr_' + Date.now();
-      iframe.name = uniqueName;
+  if (!nameInput) {
+    alert("Bitte gib zuerst einen Spielernamen ein.");
+    document.getElementById('statustxt').textContent = 'Fehlender Name';
+    return;
+  }
 
-      // 2) onload-Listener ans iFrame hängen
-      iframe.onload = function() {
-        document.getElementById('statustxt').textContent = 'Erledigt ✓';
-        // nach 3 s zurücksetzen
-        setTimeout(()=> document.getElementById('statustxt').textContent = 'Bereit', 3000);
-        // aufräumen: iFrame aus DOM entfernen
-        document.body.removeChild(iframe);
-      };
+  const data = new FormData();
+  data.append(coordsField, latlng.lat + ',' + latlng.lng);
+  data.append(nameField, nameInput);
 
-      // 3) iFrame ins Dokument hängen
-      document.body.appendChild(iframe);
+  document.getElementById('statustxt').textContent = 'Sende…';
 
-      // 4) Form-Target dynamisch setzen und absenden
-      const form = document.getElementById('hiddenForm');
-      form.target = uniqueName;
-      form.submit();*/
-    });
+  fetch(formURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: data
+  }).then(() => {
+    document.getElementById('statustxt').textContent = 'Erledigt ✓';
+    setTimeout(() => {
+      document.getElementById('statustxt').textContent = 'Bereit';
+    }, 3000);
+  }).catch(() => {
+    document.getElementById('statustxt').textContent = 'Fehler beim Senden';
+  });
+});
 
-    // Wenn das iFrame geladen hat, Formular-Submit abgeschlossen
-    document.getElementsByName('hidden_iframe')[0].addEventListener('load', function() {
-      document.getElementById('statustxt').textContent = 'Erledigt ✓';
-      // nach 3 Sekunden wieder zurücksetzen
-      setTimeout(function() {
-        document.getElementById('statustxt').textContent = 'Bereit';
-      }, 3000);
-    });
 
   function parseCSV(text) {
     const rows = text.trim().split('\n');
