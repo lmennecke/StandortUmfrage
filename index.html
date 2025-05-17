@@ -101,6 +101,7 @@ const nameInput = nameField.value.trim();
     body: data
   }).then(() => {
     document.getElementById('statustxt').textContent = 'Erledigt ✓';
+    loadData()
     setTimeout(() => {
       document.getElementById('statustxt').textContent = 'Bereit';
     }, 3000);
@@ -140,7 +141,14 @@ const nameInput = nameField.value.trim();
         if (entry.StandortKoordinaten) {
           const [lat, lng] = entry.StandortKoordinaten.split(',').map(Number);
           const name = entry.Spielername|| 'Ohne Name';
-          const marker = L.marker([lat, lng]).bindPopup(name);
+          //const marker = L.marker([lat, lng]).bindPopup(name);
+          const color = 'blue';
+          const marker = L.circleMarker([lat, lng], {
+             radius: 8,
+             color: color,
+             fillColor: color,
+             fillOpacity: 0.8
+          }).bindPopup(name);
           markerGroup.addLayer(marker);
         }
       });
