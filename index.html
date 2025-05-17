@@ -32,6 +32,15 @@
 </div>
   <h2 style="text-align:center;">Klicke deinen Standort ungefähr an</h2>
   <div id="map"></div>
+  <div style="text-align:center; margin: 10px;">
+     <label>Filter: 
+        <select id="filterSpiele">
+          <option value="AM">AM</option>
+          <option value="SSM">SSM</option>
+          <option value="AM und SSM">AM & SSM</option>
+        </select>
+    </label>
+  </div>
   <div id="info">Letzter Klick: <span id="coords">-</span></div>
   <!-- Statusanzeige -->
   <div id="status">
@@ -154,6 +163,7 @@ const nameInput = nameField.value.trim();
       document.getElementById('debug').textContent = "CSV geladen:\n" + csvText;
       const entries = parseCSV(csvText);
       document.getElementById('debug').textContent += "\n\nGeparst:\n" + JSON.stringify(entries, null, 2);
+      const filter = document.getElementById('filterSpiele').value;
       
       // Karte leeren (nur Marker löschen)
       markerGroup.clearLayers();
@@ -165,15 +175,21 @@ const nameInput = nameField.value.trim();
           const currentName = document.getElementById('spielerName').value.trim();
           const isCurrentUser = (name === currentName);
           //const marker = L.marker([lat, lng]).bindPopup(name);
-          const color = 'blue';
-          const marker = L.circleMarker([lat, lng], {
-             radius: 8,
-             weight: 20,
-             color: isCurrentUser ? 'red' : color,
-             fillColor: isCurrentUser ? 'red' : color,
-             fillOpacity: 0.8
-          }).bindPopup(name);
-          markerGroup.addLayer(marker);
+          const spiele = entry.SpielAuswahl || '';
+          if ((!filter || filter === spiele) || filter === 'AM und SSM') {
+             let color = 'gray';
+             if (spiele === 'AM') farbe = 'blue';
+             else if (spiele === 'SSM') farbe = 'yellow';
+             else if (spiele === 'AM und SSM') farbe = 'green';
+             const marker = L.circleMarker([lat, lng], {
+                radius: 6,
+                weight: 20,
+                color: color,
+                fillColor: isCurrentUser ? 'red' : color,
+                fillOpacity: 0.8
+             }).bindPopup(name);
+             markerGroup.addLayer(marker);
+          }
         }
       });
     })
