@@ -100,9 +100,17 @@ const nameInput = nameField.value.trim();
   //const data = new FormData();
   //data.append(coordsField, latlng.lat + ',' + latlng.lng);
   //data.append(nameField, nameInput);
+  const spielAuswahl = document.getElementById('spiele').value.trim();
+  if (!spielAuswahl) {
+     alert("Bitte wähle ein Spiel aus.");
+     return;
+  }  
+  //data.append(gameField, spielAuswahl); // ← spieleField muss vorher definiert sein
+  
   const data = new URLSearchParams();
   data.append('spielername', nameInput);
   data.append('coords', latlng.lat + ',' + latlng.lng);
+  data.append('spiele', spielAuswahl);
 
   document.getElementById('statustxt').textContent = 'Sende…';
 
