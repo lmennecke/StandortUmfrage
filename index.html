@@ -180,7 +180,7 @@ const nameInput = nameField.value.trim();
           if ((!filter || filter === spiele) || spiele === 'AM und SSM' || filter === 'AM und SSM') {
              let color = 'gray';
              if (spiele === 'AM') color = 'blue';
-             else if (spiele === 'SSM') color = 'yellow';
+             else if (spiele === 'SSM') color = 'orange';
              else if (spiele === 'AM und SSM') color = 'green';
              const marker = L.circleMarker([lat, lng], {
                 radius: 6,
