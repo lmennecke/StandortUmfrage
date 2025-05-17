@@ -55,7 +55,7 @@
     const markerGroup = L.layerGroup().addTo(map);  // Marker-Gruppe für Reset
 
 loadData(); // Erste Ladung
-setInterval(loadData, 60000); // Alle 60 Sekunden neu laden
+setInterval(loadData, 20000); // Alle 60 Sekunden neu laden
 
     let marker;
 map.on('click', function(e) {
