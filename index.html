@@ -20,6 +20,16 @@
        <input type="text" id="spielerName" placeholder="z.B. Runner" required />
      </label>
   </div>
+  <div style="text-align:center; margin-bottom:10px;">
+  <label>Welche Spiele spielst du? 
+    <select id="spiele" required>
+      <option value="">Bitte wählen</option>
+      <option value="AM">AM</option>
+      <option value="SSM">SSM</option>
+      <option value="AM und SSM">AM und SSM</option>
+    </select>
+  </label>
+</div>
   <h2 style="text-align:center;">Klicke deinen Standort ungefähr an</h2>
   <div id="map"></div>
   <div id="info">Letzter Klick: <span id="coords">-</span></div>
@@ -46,6 +56,7 @@
     const formAppURL = 'https://script.google.com/macros/s/AKfycbzvynq6aucDEsIZ3cioU8ZB6tEAr9PAXO8lqFUuqnyh-NWbKy7lodeQaZe5uf-vZ32V/exec';
     const coordsField = 'entry.1438475443'; // <- ersetzen durch deine Feld-ID
     const nameField = 'entry.403967903'; // ← Ersetze mit der Google Form-Feld-ID für „Spielername“
+    const gameField = 'entry.1647833182';
 
     const map = L.map('map').setView([51.1657, 10.4515], 6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
