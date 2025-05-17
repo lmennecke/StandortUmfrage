@@ -21,6 +21,7 @@ body {
 }
 
 #debug {
+  text-align: left;
   color: red;
   font-size: 0.9em;
   display: none;
