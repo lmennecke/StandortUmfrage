@@ -185,8 +185,9 @@ const nameInput = nameField.value.trim();
              const marker = L.circleMarker([lat, lng], {
                 radius: 6,
                 weight: 20,
-                color: color,
-                fillColor: isCurrentUser ? 'red' : color,
+                color: isCurrentUser ? 'red' : color,
+                opacity: 0.8,
+                fillColor: color,
                 fillOpacity: 0.8
              }).bindPopup(name);
              markerGroup.addLayer(marker);
