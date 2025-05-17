@@ -78,7 +78,7 @@ if (!nameField || !nameField.value.trim()) {
 }
 const nameInput = nameField.value.trim();
   const spielAuswahlField = document.getElementById('spiele')
-  if (!spielAuswahlField || spielAuswahlField.value.trim()) {
+  if (!spielAuswahlField || !spielAuswahlField.value.trim()) {
      alert("Bitte wähle ein Spiel aus.");
      document.getElementById('statustxt').textContent = 'Fehlende Spieleauswahl';
      return;
