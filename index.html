@@ -147,6 +147,7 @@ const nameInput = nameField.value.trim();
           const color = 'blue';
           const marker = L.circleMarker([lat, lng], {
              radius: 8,
+             weight: 11,
              color: isCurrentUser ? 'red' : color,
              fillColor: isCurrentUser ? 'red' : color,
              fillOpacity: 0.8
@@ -160,33 +161,7 @@ const nameInput = nameField.value.trim();
       document.getElementById('debug').textContent += "\n\nFehler beim Laden:\n" + err;
     });
 }
-/*    
-    // Einträge aus Google Tabelle anzeigen
-    function showMarkers(data) {
-      data.forEach(entry => {
-        const coords = entry['StandortKoordinaten']; // Spaltenname aus Google Sheet
-        if (coords) {
-          const [lat, lng] = coords.split(',').map(Number);
-          if (!isNaN(lat) && !isNaN(lng)) {
-             const name = entry['Spielername']; // Spaltenname exakt wie in der Tabelle
-             L.circleMarker([lat, lng], {
-                radius: 6,
-                color: 'blue'
-             }).addTo(map)
-               .bindPopup(name ? `Name: ${name}` : 'Kein Name');
-          }
-        }
-      });
-    }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      Tabletop.init({
-        key: sheetID,
-        simpleSheet: true,
-        callback: showMarkers
-      });
-    });
-    */
   </script>
   
 </body>
