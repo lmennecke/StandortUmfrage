@@ -77,6 +77,13 @@ if (!nameField || !nameField.value.trim()) {
   return;
 }
 const nameInput = nameField.value.trim();
+  const spielAuswahlField = document.getElementById('spiele')
+  if (!spielAuswahlField || spielAuswahlField.value.trim()) {
+     alert("Bitte wähle ein Spiel aus.");
+     document.getElementById('statustxt').textContent = 'Fehlende Spieleauswahl';
+     return;
+  }
+  const spielAuswahl = spielAuswahlField.value.trim();  
   
   const latlng = e.latlng;
 
@@ -100,11 +107,6 @@ const nameInput = nameField.value.trim();
   //const data = new FormData();
   //data.append(coordsField, latlng.lat + ',' + latlng.lng);
   //data.append(nameField, nameInput);
-  const spielAuswahl = document.getElementById('spiele').value.trim();
-  if (!spielAuswahl) {
-     alert("Bitte wähle ein Spiel aus.");
-     return;
-  }  
   //data.append(gameField, spielAuswahl); // ← spieleField muss vorher definiert sein
   
   const data = new URLSearchParams();
