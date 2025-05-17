@@ -54,6 +54,7 @@
 <iframe name="hidden_iframe" style="display:none"></iframe>
 
   <script>
+    const DEBUG = True;
     const sheetID = '1FWJ4wITDLekDidgoVY2h64EmPjPV1Ee-IOz8tDI1c0s'; // <- hier einfügen!
     //const sheetID = '2PACX-1vRT2iW41YnR4vNE_g_HpA12YpSTEM5A5lcELnwiLsCqRjhf-IWVs2BC09tdPSW2tt2o1ugztE2_vhri'
     const csvURL = `https://docs.google.com/spreadsheets/d/${sheetID}/export?format=csv`;
@@ -62,6 +63,10 @@
     const coordsField = 'entry.1438475443'; // <- ersetzen durch deine Feld-ID
     const nameField = 'entry.403967903'; // ← Ersetze mit der Google Form-Feld-ID für „Spielername“
     const gameField = 'entry.1647833182';
+
+    if (DEBUG) {
+       document.getElementById('debugField').style.display = 'block';
+    }
 
     const map = L.map('map').setView([51.1657, 10.4515], 6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
