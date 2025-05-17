@@ -97,7 +97,7 @@ const nameInput = nameField.value.trim();
 
   fetch(formAppURL, {
     method: 'POST',
-    mode: 'no-cors',
+    //mode: 'no-cors',
     body: data
   }).then(() => {
     document.getElementById('statustxt').textContent = 'Erledigt ✓';
