@@ -179,9 +179,9 @@ const nameInput = nameField.value.trim();
           const spiele = entry.SpielAuswahl || '';
           if ((!filter || filter === spiele) || filter === 'AM und SSM') {
              let color = 'gray';
-             if (spiele === 'AM') farbe = 'blue';
-             else if (spiele === 'SSM') farbe = 'yellow';
-             else if (spiele === 'AM und SSM') farbe = 'green';
+             if (spiele === 'AM') color = 'blue';
+             else if (spiele === 'SSM') color = 'yellow';
+             else if (spiele === 'AM und SSM') color = 'green';
              const marker = L.circleMarker([lat, lng], {
                 radius: 6,
                 weight: 20,
