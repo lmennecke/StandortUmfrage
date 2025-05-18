@@ -172,3 +172,20 @@ nav .right {
 .direction-arrow.bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
 .direction-arrow.left { left: 10px; top: 50%; transform: translateY(-50%); }
 .direction-arrow.right { right: 10px; top: 50%; transform: translateY(-50%); }
+
+
+nav select {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 1em;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+nav select option {
+  background-color: #333;
+  color: white;
+}
