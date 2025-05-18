@@ -35,7 +35,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0px;
-  width: 100%;
+  width: 98%;
 }
 
 .topnav a {
@@ -74,7 +74,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  width: 100%;
+  width: 98%;
 }
 
 .nav-link {
