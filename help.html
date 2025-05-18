@@ -6,20 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <nav>
-     <div class="left">
+     <div class="topnav">
        <a id="navStart" href="index.html">Start</a>
        <a id="navHilfe" href="help.html">Hilfe</a>
        <a id="navDisclaimer" href="disclaimer.html">Disclaimer</a>
-     </div>
-     <div class="right">
-       <label id="languageLabel" for="languageSelector">Sprache:</label>
-       <select id="languageSelector">
+       <label id="languageLabel" for="languageSelect">Sprache:</label>
+       <select id="languageSelect">
          <option value="de">Deutsch</option>
          <option value="en">English</option>
          <option value="fr">Français</option>
        </select>
      </div>
   </nav>
+  <script src="translations.js"></script>
   <script>
     const translationsHelp = {
       de: {
