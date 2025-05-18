@@ -96,7 +96,7 @@ function getLang() {
    const params = new URLSearchParams(window.location.search);
    const langFromUrl = params.get("lang");
    let language = "de"; // fallback
-   if (!translations[langFromUrl]) {
+   if (translations[langFromUrl]) {
      language = langFromUrl;
    } else {
      const langFromStorage = localStorage.getItem('language');
