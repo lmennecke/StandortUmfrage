@@ -1,5 +1,8 @@
 const translations = {
   de: {
+    help: "Hilfe",
+    disclaimer: "Disclaimer",
+    language: "Sprache",
     labelSpielername: "Gib Deinen Spielernamen an",
     labelSpielernameInput: "Spielername:",
     placeholderSpielername: "z.B. RoadRunner",
@@ -19,6 +22,9 @@ const translations = {
     msgFehlenderSpielername: "Fehlender Spielername"
   },
   en: {
+    help: "Help",
+    disclaimer: "Disclaimer",
+    language: "Language",
     labelSpielername: "Enter your player name",
     labelSpielernameInput: "Player name:",
     placeholderSpielername: "e.g. RoadRunner",
@@ -38,6 +44,9 @@ const translations = {
     msgFehlenderSpielername: "Missing player name"
   },
   fr: {
+    help: "Aide",
+    disclaimer: "Avertissement",
+    language: "Langue",
     labelSpielername: "Entrez votre nom de joueur",
     labelSpielernameInput: "Nom du joueur:",
     placeholderSpielername: "ex. Coureur",
