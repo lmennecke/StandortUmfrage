@@ -203,20 +203,20 @@ const nameInput = nameField.value.trim();
   data.append('coords', latlng.lat + ',' + latlng.lng);
   data.append('spiele', spielAuswahl);
 
-  document.getElementById('statustxt').textContent = translations[savedLang].statusSende;
+  //document.getElementById('statustxt').textContent = translations[savedLang].statusSende;
 
   fetch(formAppURL, {
     method: 'POST',
     //mode: 'no-cors',
     body: data
   }).then(() => {
-    document.getElementById('statustxt').textContent = translations[savedLang].statusErledigt;
+    //document.getElementById('statustxt').textContent = translations[savedLang].statusErledigt;
     loadData()
     setTimeout(() => {
-      document.getElementById('statustxt').textContent = translations[savedLang].statusBereit;
+      //document.getElementById('statustxt').textContent = translations[savedLang].statusBereit;
     }, 3000);
   }).catch(() => {
-    document.getElementById('statustxt').textContent = translations[savedLang].statusFehler;
+    //document.getElementById('statustxt').textContent = translations[savedLang].statusFehler;
   });
 });
 
