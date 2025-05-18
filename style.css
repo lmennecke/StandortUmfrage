@@ -46,6 +46,14 @@ body {
   display: inline-block;
 }
 
+nav a.menuactive {
+  font-weight: bold;
+  text-decoration: underline;
+  color: yellow;
+  background-color: #555;
+  border-radius: 4px;
+}
+
 .topnav a:hover {
   background-color: #575757;
   color: white;
