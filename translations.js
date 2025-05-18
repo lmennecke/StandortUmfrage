@@ -53,6 +53,7 @@ const translations = {
     statusErledigt: "Terminé ✓",
     statusFehler: "Erreur d'envoi",
     alertKeinName: "Veuillez d'abord entrer un nom de joueur.",
-    alertKeineSpiele: "Veuillez choisir un jeu."
+    alertKeineSpiele: "Veuillez choisir un jeu.",
+    msgFehlenderSpielername: "Nom de joueur manquant"
   }
 };
