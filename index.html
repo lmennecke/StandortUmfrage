@@ -220,7 +220,7 @@ const nameInput = nameField.value.trim();
           const isCurrentUser = (name === currentName);
           //const marker = L.marker([lat, lng]).bindPopup(name);
           const spiele = entry.SpielAuswahl || '';
-          if ((!filter || filter === spiele) || spiele === 'AM und SSM' || filter === 'AM und SSM' || isCurrentUser) {
+          if ((!filter || filter === spiele) || spiele === 'AM & SSM' || filter === 'AM & SSM' || isCurrentUser) {
              let color = 'gray';
              if (spiele === 'AM') color = 'blue';
              else if (spiele === 'SSM') color = 'darkorange';
