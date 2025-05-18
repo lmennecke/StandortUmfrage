@@ -255,24 +255,41 @@ function showDirectionIndicators(directions) {
     
 function checkOffscreenMarkers(markers) {
   const bounds = map.getBounds();
-  let directions = {
+  const directions = {
     top: false,
     bottom: false,
     left: false,
-    right: false
+    right: false,
   };
 
+  // Prüfe alle Marker
   markers.forEach(marker => {
-    const latlng = marker.getLatLng();
-    if (!bounds.contains(latlng)) {
-      if (latlng.lat > bounds.getNorth()) directions.top = true;
-      if (latlng.lat < bounds.getSouth()) directions.bottom = true;
-      if (latlng.lng < bounds.getWest()) directions.left = true;
-      if (latlng.lng > bounds.getEast()) directions.right = true;
+    const latLng = marker.getLatLng();
+    if (!bounds.contains(latLng)) {
+      if (latLng.lat > bounds.getNorth()) directions.top = true;
+      if (latLng.lat < bounds.getSouth()) directions.bottom = true;
+      if (latLng.lng < bounds.getWest()) directions.left = true;
+      if (latLng.lng > bounds.getEast()) directions.right = true;
     }
   });
 
-  showDirectionIndicators(directions);
+  // Alte Pfeile entfernen
+  document.querySelectorAll('.direction-arrow').forEach(el => el.remove());
+
+  const mapContainer = map.getContainer();
+
+  Object.entries(directions).forEach(([dir, active]) => {
+    if (active) {
+      const arrow = document.createElement('div');
+      arrow.className = `direction-arrow ${dir}`;
+
+      // Unicode-Pfeile für Richtungen
+      const symbols = { top: '↑', bottom: '↓', left: '←', right: '→' };
+      arrow.textContent = symbols[dir];
+
+      mapContainer.appendChild(arrow);
+    }
+  });
 }
 
   function parseCSV(csvText) {
