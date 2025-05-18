@@ -11,9 +11,8 @@
 </head>
 <body>
   <nav class="topnav">
-     <a href="index.html">Start</a>
-     <a href="help.html">Hilfe</a>
-     <a href="disclaimer.html">Disclaimer</a>
+     <a id="navHilfe" href="#">Hilfe</a>
+     <a id="navDisclaimer" href="#">Disclaimer</a>
      <div class="language-select">
        <label for="languageSelect" style="margin-right: 5px;">Sprache:</label>
        <select id="languageSelect">
@@ -77,6 +76,20 @@
     const coordsField = 'entry.1438475443'; // <- ersetzen durch deine Feld-ID
     const nameField = 'entry.403967903'; // ← Ersetze mit der Google Form-Feld-ID für „Spielername“
     const gameField = 'entry.1647833182';
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = new URLSearchParams(window.location.search).get("lang") || "de";
+  document.getElementById("navHilfe").href = `hilfe.html?lang=${lang}`;
+  document.getElementById("navDisclaimer").href = `disclaimer.html?lang=${lang}`;
+  document.getElementById("languageSelect").value = lang;
+
+  document.getElementById("languageSelect").addEventListener("change", (e) => {
+    const newLang = e.target.value;
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", newLang);
+    window.location.href = url.toString();
+  });
+});
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
