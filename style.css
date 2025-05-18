@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   text-align: left;
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 
@@ -67,7 +67,7 @@ nav {
   right: 0;
   background-color: #f8f8f8;
   border-bottom: 1px solid #ccc;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,5 +81,5 @@ nav .right {
 }
 
 body {
-  margin-top: 100px; /* Platz für die feste Navigationsleiste */
+  margin-top: 80px; /* Platz für die feste Navigationsleiste */
 }
