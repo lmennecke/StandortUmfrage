@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     url.searchParams.set("lang", newLang);
     window.location.href = url.toString();
   });
-});
+}); 
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
