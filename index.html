@@ -126,7 +126,7 @@ function setLanguage(lang) {
   document.getElementById('labelStandort').textContent = t.labelStandort;
   document.getElementById('labelFilter').childNodes[0].nodeValue = t.labelFilter + ' ';
   document.getElementById('status').textContent = t.status;
-  document.getElementById('statustxt').textContent = t.statusBereit;
+  document.getElementById('statustxt').textContent = 'Blabla'; //t.statusBereit;
 
   window.currentTranslations = t;
   localStorage.setItem('language', lang);
