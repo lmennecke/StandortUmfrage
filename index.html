@@ -55,6 +55,12 @@
         </select>
     </label>
   </div>
+  <div id="directionIndicators" class="directions">
+    <div id="indicatorTop" class="indicator top"></div>
+    <div id="indicatorBottom" class="indicator bottom"></div>
+    <div id="indicatorLeft" class="indicator left"></div>
+    <div id="indicatorRight" class="indicator right"></div>
+  </div>
   <!-- Statusanzeige -->
   <div id="status" class="status">
     <span id="statusLabelPrefix">Status:</span>
@@ -228,6 +234,43 @@ const nameInput = nameField.value.trim();
   });
 });
 
+function showDirectionIndicators(directions) {
+  const lang = savedLang; // z. B. über ?lang= oder localStorage
+
+  document.getElementById('indicatorTop').textContent = translations[lang].direction_top;
+  document.getElementById('indicatorTop').style.display = directions.top ? 'block' : 'none';
+
+  document.getElementById('indicatorBottom').textContent = translations[lang].direction_bottom;
+  document.getElementById('indicatorBottom').style.display = directions.bottom ? 'block' : 'none';
+
+  document.getElementById('indicatorLeft').textContent = translations[lang].direction_left;
+  document.getElementById('indicatorLeft').style.display = directions.left ? 'block' : 'none';
+
+  document.getElementById('indicatorRight').textContent = translations[lang].direction_right;
+  document.getElementById('indicatorRight').style.display = directions.right ? 'block' : 'none';
+}
+    
+function checkOffscreenMarkers(markers) {
+  const bounds = map.getBounds();
+  let directions = {
+    top: false,
+    bottom: false,
+    left: false,
+    right: false
+  };
+
+  markers.forEach(marker => {
+    const latlng = marker.getLatLng();
+    if (!bounds.contains(latlng)) {
+      if (latlng.lat > bounds.getNorth()) directions.top = true;
+      if (latlng.lat < bounds.getSouth()) directions.bottom = true;
+      if (latlng.lng < bounds.getWest()) directions.left = true;
+      if (latlng.lng > bounds.getEast()) directions.right = true;
+    }
+  });
+
+  showDirectionIndicators(directions);
+}
 
   function parseCSV(csvText) {
      const parsed = Papa.parse(csvText, {
@@ -255,6 +298,7 @@ const nameInput = nameField.value.trim();
       
       // Karte leeren (nur Marker löschen)
       markerGroup.clearLayers();
+      const visibleMarkers = [];
 
       entries.forEach(entry => {
         if (entry.StandortKoordinaten) {
@@ -278,9 +322,11 @@ const nameInput = nameField.value.trim();
                 fillOpacity: 0.9
              }).bindPopup(name);
              markerGroup.addLayer(marker);
+             visibleMarkers.push(marker);
           }
         }
       });
+      checkOffscreenMarkers(visibleMarkers);
     })
     .catch(err => {
       //console.error("Fehler beim Laden der Daten:", err)
