@@ -95,8 +95,8 @@
       document.getElementById("navHilfe").href = `hilfe.html?lang=${lang}`;
       document.getElementById("navDisclaimer").href = `disclaimer.html?lang=${lang}`;
 
-      document.getElementById("langSelector").value = lang;
-      document.getElementById("langSelector").addEventListener("change", (e) => {
+      document.getElementById("languageSelect").value = lang;
+      document.getElementById("languageSelect").addEventListener("change", (e) => {
         const newLang = e.target.value;
         const url = new URL(window.location.href);
         url.searchParams.set("lang", newLang);
