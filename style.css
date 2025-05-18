@@ -151,3 +151,23 @@ nav .right {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.direction-arrow {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  z-index: 1000;
+  cursor: default;
+  user-select: none;
+}
+
+.direction-arrow.top { top: 10px; left: 50%; transform: translateX(-50%); }
+.direction-arrow.bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.direction-arrow.left { left: 10px; top: 50%; transform: translateY(-50%); }
+.direction-arrow.right { right: 10px; top: 50%; transform: translateY(-50%); }
