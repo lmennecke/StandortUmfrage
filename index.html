@@ -111,10 +111,10 @@ function getLang() {
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
-  document.getElementById("navStart").textContent = translations[lang].start;
-  document.getElementById("navHilfe").textContent = translations[lang].help;
-  document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
-  document.getElementById("languageLabel").textContent = translations[lang].language + ":";
+  document.getElementById("navStart").textContent = t.start;
+  document.getElementById("navHilfe").textContent = t.help;
+  document.getElementById("navDisclaimer").textContent = t.disclaimer;
+  document.getElementById("languageLabel").textContent = t.language + ":";
 
   document.getElementById('header').textContent = t.header;
   document.getElementById('labelSpielername').textContent = t.labelSpielername;
