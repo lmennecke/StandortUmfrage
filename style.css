@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   text-align: left;
+  margin-top: 80px; /* Platz für die feste Navigationsleiste */
   margin: 20px;
   padding: 0;
 }
@@ -33,7 +34,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0px;
 }
 
 .topnav a {
@@ -80,6 +81,3 @@ nav .right {
   gap: 10px;
 }
 
-body {
-  margin-top: 80px; /* Platz für die feste Navigationsleiste */
-}
