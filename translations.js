@@ -20,7 +20,8 @@ const translations = {
     statusFehler: "Fehler beim Senden",
     alertKeinName: "Bitte gib zuerst einen Spielernamen ein.",
     alertKeineSpiele: "Bitte wähle ein Spiel aus.",
-    msgFehlenderSpielername: "Fehlender Spielername"
+    msgFehlenderSpielername: "Fehlender Spielername",
+    msgFehlendeSpieleAuswahl: "Fehlende Spieleauswahl"
   },
   en: {
     start: "Start",
@@ -43,7 +44,8 @@ const translations = {
     statusFehler: "Error sending",
     alertKeinName: "Please enter a player name first.",
     alertKeineSpiele: "Please select a game.",
-    msgFehlenderSpielername: "Missing player name"
+    msgFehlenderSpielername: "Missing player name",
+    msgFehlendeSpieleAuswahl: "Missing game selection"
   },
   fr: {
     start: "Lancement",
@@ -66,6 +68,7 @@ const translations = {
     statusFehler: "Erreur d'envoi",
     alertKeinName: "Veuillez d'abord entrer un nom de joueur.",
     alertKeineSpiele: "Veuillez choisir un jeu.",
-    msgFehlenderSpielername: "Nom de joueur manquant"
+    msgFehlenderSpielername: "Nom de joueur manquant",
+    msgFehlendeSpieleAuswahl: "Manque de choix de jeux"
   }
 };
