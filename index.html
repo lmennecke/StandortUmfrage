@@ -14,7 +14,7 @@
      <a id="navHilfe" href="#">Hilfe</a>
      <a id="navDisclaimer" href="#">Disclaimer</a>
      <div class="language-select">
-       <label for="languageSelect" style="margin-right: 5px;">Sprache:</label>
+       <label id="languageLabel" for="languageSelect" style="margin-right: 5px;">Sprache:</label>
        <select id="languageSelect">
          <option value="de">Deutsch</option>
          <option value="en">English</option>
@@ -93,7 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
-
+  document.getElementById("navHilfe").textContent = translations[lang].help;
+  document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
+  document.getElementById("languageLabel").textContent = translations[lang].language + ":";
+  
   document.getElementById('labelSpielername').textContent = t.labelSpielername;
   document.getElementById('labelSpielernameInput').childNodes[0].nodeValue = t.labelSpielernameInput + ' ';
   document.getElementById('spielerName').placeholder = t.placeholderSpielername;
