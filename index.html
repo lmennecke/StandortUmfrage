@@ -161,14 +161,14 @@ document.getElementById('filterSpiele').addEventListener('change', loadData);
 map.on('click', function(e) {
   const nameField = document.getElementById('spielerName');
 if (!nameField || !nameField.value.trim()) {
-  alert("Bitte gib zuerst einen Spielernamen ein.");
+  alert(translations[savedLang].alertKeinName);
   document.getElementById('statustxt').textContent = translations[savedLang].msgFehlenderSpielername;
   return;
 }
 const nameInput = nameField.value.trim();
   const spielAuswahlField = document.getElementById('spiele')
   if (!spielAuswahlField || !spielAuswahlField.value.trim()) {
-     alert("Bitte wähle ein Spiel aus.");
+     alert(translations[savedLang].alertKeineSpiele);
      document.getElementById('statustxt').textContent = 'Fehlende Spieleauswahl';
      return;
   }
