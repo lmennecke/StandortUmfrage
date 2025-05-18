@@ -117,3 +117,37 @@ nav .right {
   }
 }
 
+.directions .indicator {
+  position: absolute;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-radius: 3px;
+  font-size: 0.9em;
+  z-index: 1000;
+  display: none;
+}
+
+.indicator.top {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator.bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator.left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.indicator.right {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
