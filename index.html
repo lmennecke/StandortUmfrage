@@ -52,7 +52,7 @@
   </div>
   <div id="info">Letzter Klick: <span id="coords">-</span></div>
   <!-- Statusanzeige -->
-  <div id="status">Status: <span id="statustxt">Bereit</span></div>
+  <div id="statusLabel">Status: <span id="statustxt">Bereit</span></div>
   <div id="debug" style="white-space: pre-wrap; font-family: monospace; background:#eee; padding:10px;"></div>
 
   <form id="hiddenForm" 
@@ -123,7 +123,7 @@ function setLanguage(lang) {
 
   document.getElementById('labelStandort').textContent = t.labelStandort;
   document.getElementById('labelFilter').childNodes[0].nodeValue = t.labelFilter + ' ';
-  document.getElementById('status').textContent = t.status;
+  document.getElementById('statusLabel').textContent = t.status;
   document.getElementById('statustxt').textContent = 'Blabla'; //t.statusBereit;
 
   window.currentTranslations = t;
