@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
+  document.getElementById("navStart").textContent = translations[lang].start;
   document.getElementById("navHilfe").textContent = translations[lang].help;
   document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
   document.getElementById("languageLabel").textContent = translations[lang].language + ":";
