@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hilfe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    const translations = {
+      de: {
+        title: "Hilfe",
+        back: "Zurück zur Hauptseite",
+        content: `
+          <h2>Hilfe zur Standortkarte</h2>
+          <p>Hier kannst du deinen Standort auf der Karte markieren.</p>
+          <ul>
+            <li>Gib deinen Spielernamen ein.</li>
+            <li>Wähle deine gespielten Spiele aus.</li>
+            <li>Klicke auf die Karte, um deinen ungefähren Standort zu setzen.</li>
+            <li>Deine Markierung wird gespeichert und angezeigt.</li>
+          </ul>
+        `
+      },
+      en: {
+        title: "Help",
+        back: "Back to main page",
+        content: `
+          <h2>Help for the map</h2>
+          <p>You can mark your location on the map.</p>
+          <ul>
+            <li>Enter your player name.</li>
+            <li>Select the games you play.</li>
+            <li>Click the map to set your approximate location.</li>
+            <li>Your marker will be saved and displayed.</li>
+          </ul>
+        `
+      },
+      fr: {
+        title: "Aide",
+        back: "Retour à la page principale",
+        content: `
+          <h2>Aide pour la carte</h2>
+          <p>Tu peux marquer ta position sur la carte.</p>
+          <ul>
+            <li>Entre ton nom de joueur.</li>
+            <li>Sélectionne les jeux auxquels tu joues.</li>
+            <li>Clique sur la carte pour indiquer ta position approximative.</li>
+            <li>Ton marqueur sera enregistré et affiché.</li>
+          </ul>
+        `
+      }
+    };
+
+    function getLang() {
+      const params = new URLSearchParams(window.location.search);
+      const lang = params.get("lang");
+      return translations[lang] ? lang : "de";
+    }
+
+    function applyTranslation() {
+      const lang = getLang();
+      const t = translations[lang];
+      document.title = t.title;
+      document.getElementById("backLink").textContent = t.back;
+      document.getElementById("content").innerHTML = t.content;
+    }
+
+    window.addEventListener("DOMContentLoaded", applyTranslation);
+  </script>
+</head>
+<body>
+  <nav>
+    <a id="backLink" href="index.html">Zurück</a>
+  </nav>
+  <main id="content"></main>
+</body>
+</html>
