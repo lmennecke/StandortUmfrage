@@ -46,7 +46,7 @@ body {
   display: inline-block;
 }
 
-nav a.menuactive {
+.topnav a.menuactive {
   font-weight: bold;
   text-decoration: underline;
   color: yellow;
