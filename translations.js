@@ -23,7 +23,11 @@ const translations = {
     alertKeinName: "Bitte gib zuerst einen Spielernamen ein.",
     alertKeineSpiele: "Bitte wähle ein Spiel aus.",
     msgFehlenderSpielername: "Fehlender Spielername",
-    msgFehlendeSpieleAuswahl: "Fehlende Spieleauswahl"
+    msgFehlendeSpieleAuswahl: "Fehlende Spieleauswahl",
+    direction_top: "Spieler im Norden",
+    direction_bottom: "Spieler im Süden",
+    direction_left: "Spieler im Westen",
+    direction_right: "Spieler im Osten"
   },
   en: {
     start: "Start",
@@ -49,7 +53,11 @@ const translations = {
     alertKeinName: "Please enter a player name first.",
     alertKeineSpiele: "Please select a game.",
     msgFehlenderSpielername: "Missing player name",
-    msgFehlendeSpieleAuswahl: "Missing game selection"
+    msgFehlendeSpieleAuswahl: "Missing game selection",
+    direction_top: "Players to the North",
+    direction_bottom: "Players to the South",
+    direction_left: "Players to the West",
+    direction_right: "Players to the East"
   },
   fr: {
     start: "Lancement",
@@ -75,6 +83,10 @@ const translations = {
     alertKeinName: "Veuillez d'abord entrer un nom de joueur.",
     alertKeineSpiele: "Veuillez choisir un jeu.",
     msgFehlenderSpielername: "Nom de joueur manquant",
-    msgFehlendeSpieleAuswahl: "Manque de choix de jeux"
+    msgFehlendeSpieleAuswahl: "Manque de choix de jeux",
+    direction_top: "Jouers au nord",
+    direction_bottom: "Jouers au sud",
+    direction_left: "Jouers à l'ouest",
+    direction_right: "Jouers à l'est"
   }
 };
