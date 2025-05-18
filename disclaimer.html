@@ -21,7 +21,8 @@
      </div>
   </nav>
   <script>
-    const translations = {
+    <script src="translations.js"></script>
+    const translationsDisclaimer = {
       de: {
         title: "Haftungsausschluss",
         back: "Zurück zur Hauptseite",
@@ -63,7 +64,7 @@
     function getLang() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get("lang");
-      return translations[lang] ? lang : "de";
+      return translationsDisclaimer[lang] ? lang : "de";
     }
     
     function showEmail(id) {
@@ -81,10 +82,28 @@
 
     function applyTranslation() {
       const lang = getLang();
-      const t = translations[lang];
+      const t = translationsDisclaimer[lang];
       document.title = t.title;
       document.getElementById("backLink").textContent = t.back;
       document.getElementById("content").innerHTML = t.content;
+
+      document.getElementById("navStart").textContent = translations[lang].start;
+      document.getElementById("navHilfe").textContent = translations[lang].help;
+      document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
+      document.getElementById("languageLabel").textContent = translations[lang].language + ":";
+
+      // Links aktualisieren mit Sprachparametern
+      document.getElementById("navStart").href = `index.html?lang=${lang}`;
+      document.getElementById("navHilfe").href = `hilfe.html?lang=${lang}`;
+      document.getElementById("navDisclaimer").href = `disclaimer.html?lang=${lang}`;
+
+      document.getElementById("langSelector").value = lang;
+      document.getElementById("langSelector").addEventListener("change", (e) => {
+        const newLang = e.target.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", newLang);
+        window.location.href = url.toString();
+      })
 
       if (lang === "de") showEmail("emailDe");
       if (lang === "en") showEmail("emailEn");
