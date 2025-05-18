@@ -16,7 +16,7 @@
           <p>Es wird keine Haftung für die Genauigkeit, Aktualität oder Vollständigkeit der bereitgestellten Informationen übernommen.</p>
           <h3>Datenschutz & Kontakt</h3>
           <p>Wenn du Fragen zum Datenschutz hast oder wünschst, dass dein Eintrag gelöscht wird, kontaktiere mich bitte per E-Mail.</p>
-          <p>E-Mail: <a href="mailto:amiltschi@gmail.com">amiltschi@google.com</a></p>
+          <p id="emailDe"></p>
         `
       },
       en: {
@@ -28,7 +28,7 @@
           <p>No responsibility is taken for the accuracy, timeliness, or completeness of the information provided.</p>
           <h3>Privacy & Contact</h3>
           <p>If you have questions about data privacy or want your entry removed, please contact me by email.</p>
-          <p>Email: <a href="mailto:amiktschi@google.com">amiltschi@google.com</a></p>
+          <p id="emailEn"></p>
         `
       },
       fr: {
@@ -40,7 +40,7 @@
           <p>Aucune responsabilité n'est assumée quant à l'exactitude, l'actualité ou l'exhaustivité des informations fournies.</p>
           <h3>Protection des données & Contact</h3>
           <p>Si vous avez des questions concernant la protection des données ou si vous souhaitez que votre entrée soit supprimée, veuillez me contacter par e-mail.</p>
-          <p>Email : <a href="mailto:amiltschi@gmail.com">amiltschi@gmail.com</a></p>
+          <p id="emailFr"></p>
         `
       }
     };
@@ -50,6 +50,19 @@
       const lang = params.get("lang");
       return translations[lang] ? lang : "de";
     }
+    
+    function showEmail(id) {
+      const user = "amiltschi";
+      const domain = "google.com";
+      const element = document.getElementById(id);
+      if (element) {
+        const link = document.createElement("a");
+        link.href = "mailto:" + user + "@" + domain;
+        link.textContent = user + "@" + domain;
+        element.appendChild(link);
+      }
+    }
+
 
     function applyTranslation() {
       const lang = getLang();
@@ -57,6 +70,10 @@
       document.title = t.title;
       document.getElementById("backLink").textContent = t.back;
       document.getElementById("content").innerHTML = t.content;
+
+      if (lang === "de") showEmail("emailDe");
+      if (lang === "en") showEmail("emailEn");
+      if (lang === "fr") showEmail("emailFr");
     }
 
     window.addEventListener("DOMContentLoaded", applyTranslation);
