@@ -74,8 +74,7 @@
     function applyTranslation() {
       const lang = getLang();
       const t = translationsHelp[lang];
-      document.title = t.title;
-      document.getElementById("backLink").textContent = t.back;
+      document.title = t.title
       document.getElementById("content").innerHTML = t.content;
 
       document.getElementById("navStart").textContent = translations[lang].start;
