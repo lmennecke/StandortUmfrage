@@ -134,9 +134,9 @@ function setLanguage(lang) {
 }
 
     // Setze Sprache beim Laden
-    let language = getLang();
-    document.getElementById('languageSelect').value = language;
-    setLanguage(language);
+    let savedLang = getLang();
+    document.getElementById('languageSelect').value = savedLand;
+    setLanguage(savedLang);
 
     document.getElementById('languageSelect').addEventListener('change', (e) => {
       setLanguage(e.target.value);
@@ -162,7 +162,7 @@ map.on('click', function(e) {
   const nameField = document.getElementById('spielerName');
 if (!nameField || !nameField.value.trim()) {
   alert("Bitte gib zuerst einen Spielernamen ein.");
-  document.getElementById('statustxt').textContent = translations[language].msgFehlenderSpielername;
+  document.getElementById('statustxt').textContent = translations[savedLang].msgFehlenderSpielername;
   return;
 }
 const nameInput = nameField.value.trim();
