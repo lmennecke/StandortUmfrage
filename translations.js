@@ -60,7 +60,7 @@ const translations = {
     labelSpielername: "Indique ton nom de joueur et sélectionne tes jeux",
     labelSpielernameInput: "Nom du joueur:",
     placeholderSpielername: "ex. Coureur",
-    labelSpielAuswahl: "À quels jeux joues-tu ?",
+    labelSpielAuswahl: "À quels jeux joues-tu?",
     optionBitteWaehlen: "Veuillez choisir",
     optionAM: "AM",
     optionSSM: "SSM",
