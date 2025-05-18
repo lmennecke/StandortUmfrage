@@ -145,7 +145,8 @@ function setLanguage(lang) {
     });
     
     if (DEBUG) {
-       document.getElementById('debug').style.display = 'block';
+      document.getElementById('debug').style.display = 'block';
+      document.getElementById('info').style.display = 'block';
     }
 
     const map = L.map('map').setView([51.1657, 10.4515], 6);
