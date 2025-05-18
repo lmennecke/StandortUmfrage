@@ -1,5 +1,6 @@
 const translations = {
   de: {
+    start: "Start",
     help: "Hilfe",
     disclaimer: "Disclaimer",
     language: "Sprache",
@@ -22,6 +23,7 @@ const translations = {
     msgFehlenderSpielername: "Fehlender Spielername"
   },
   en: {
+    start: "Start",
     help: "Help",
     disclaimer: "Disclaimer",
     language: "Language",
@@ -44,6 +46,7 @@ const translations = {
     msgFehlenderSpielername: "Missing player name"
   },
   fr: {
+    start: "Lancement",
     help: "Aide",
     disclaimer: "Avertissement",
     language: "Langue",
