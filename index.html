@@ -169,7 +169,7 @@ const nameInput = nameField.value.trim();
   const spielAuswahlField = document.getElementById('spiele')
   if (!spielAuswahlField || !spielAuswahlField.value.trim()) {
      alert(translations[savedLang].alertKeineSpiele);
-     document.getElementById('statustxt').textContent = translations[savedLang].msgFehlenderSpielername;
+     document.getElementById('statustxt').textContent = translations[savedLang].msgFehlendeSpieleAuswahl;
      return;
   }
   const spielAuswahl = spielAuswahlField.value.trim();  
