@@ -166,6 +166,9 @@ function setLanguage(lang) {
     }).addTo(map);
 
     const markerGroup = L.layerGroup().addTo(map);  // Marker-Gruppe für Reset
+    map.on('moveend zoomend', () => {
+      checkOffscreenMarkers(markerGroup.getLayers());
+    });
 
 loadData(); // Erste Ladung
 setInterval(loadData, 20000); // Alle 60 Sekunden neu laden
