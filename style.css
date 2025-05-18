@@ -1,8 +1,8 @@
 body {
   font-family: sans-serif;
   text-align: left;
-  margin-top: 90px; /* Platz für die feste Navigationsleiste */
   margin: 20px;
+  margin-top: 90px; /* Platz für die feste Navigationsleiste */
   padding: 0;
 }
 
