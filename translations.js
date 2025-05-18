@@ -15,7 +15,8 @@ const translations = {
     statusErledigt: "Erledigt ✓",
     statusFehler: "Fehler beim Senden",
     alertKeinName: "Bitte gib zuerst einen Spielernamen ein.",
-    alertKeineSpiele: "Bitte wähle ein Spiel aus."
+    alertKeineSpiele: "Bitte wähle ein Spiel aus.",
+    msgFehlenderSpielername: "Fehlender Spielername"
   },
   en: {
     labelSpielername: "Enter your player name",
@@ -33,7 +34,8 @@ const translations = {
     statusErledigt: "Done ✓",
     statusFehler: "Error sending",
     alertKeinName: "Please enter a player name first.",
-    alertKeineSpiele: "Please select a game."
+    alertKeineSpiele: "Please select a game.",
+    msgFehlenderSpielername: "Missing player name"
   },
   fr: {
     labelSpielername: "Entrez votre nom de joueur",
