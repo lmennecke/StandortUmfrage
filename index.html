@@ -99,9 +99,10 @@ function getLang() {
    if (!translations[langFromUrl]) {
      language = langFromUrl;
    } else {
-     
+     const langFromStorage = localStorage.getItem('language');
+     language = translationsHelp[langFromStorage] ? langFromStorage : "de";
    }
-      return translationsHelp[lang] ? lang : "de";
+   return language;
 }
 
 function setLanguage(lang) {
