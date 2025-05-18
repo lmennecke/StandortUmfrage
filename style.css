@@ -14,7 +14,7 @@ body {
 
 #info {
   padding: 20px;
-  display:hidden;
+  display: none;
 }
 
 #status {
