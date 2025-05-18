@@ -94,10 +94,11 @@ function setLanguage(lang) {
 
   window.currentTranslations = t;
   localStorage.setItem('language', lang);
+  savedLang = lang;
 }
 
     // Setze Sprache beim Laden
-    const savedLang = localStorage.getItem('language') || 'de';
+    let savedLang = localStorage.getItem('language') || 'de';
     document.getElementById('languageSelect').value = savedLang;
     setLanguage(savedLang);
 
@@ -125,7 +126,7 @@ map.on('click', function(e) {
   const nameField = document.getElementById('spielerName');
 if (!nameField || !nameField.value.trim()) {
   alert("Bitte gib zuerst einen Spielernamen ein.");
-  document.getElementById('statustxt').textContent = 'Fehlender Spielername';
+  document.getElementById('statustxt').textContent = translations[savedLang].msgFehlenderSpielername;
   return;
 }
 const nameInput = nameField.value.trim();
