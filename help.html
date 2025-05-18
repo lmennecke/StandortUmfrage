@@ -8,7 +8,7 @@
   <nav>
      <div class="left">
        <a id="navStart" href="index.html">Start</a>
-       <a id="navHilfe" href="hilfe.html">Hilfe</a>
+       <a id="navHilfe" href="help.html">Hilfe</a>
        <a id="navDisclaimer" href="disclaimer.html">Disclaimer</a>
      </div>
      <div class="right">
@@ -21,7 +21,7 @@
      </div>
   </nav>
   <script>
-    const translations = {
+    const translationsHelp = {
       de: {
         title: "Hilfe",
         back: "Zurück zur Hauptseite",
@@ -69,15 +69,33 @@
     function getLang() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get("lang");
-      return translations[lang] ? lang : "de";
+      return translationsHelp[lang] ? lang : "de";
     }
 
     function applyTranslation() {
       const lang = getLang();
-      const t = translations[lang];
+      const t = translationsHelp[lang];
       document.title = t.title;
       document.getElementById("backLink").textContent = t.back;
       document.getElementById("content").innerHTML = t.content;
+
+      document.getElementById("navStart").textContent = translations[lang].start;
+      document.getElementById("navHilfe").textContent = translations[lang].help;
+      document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
+      document.getElementById("languageLabel").textContent = translations[lang].language + ":";
+
+      // Links aktualisieren mit Sprachparametern
+      document.getElementById("navStart").href = `index.html?lang=${lang}`;
+      document.getElementById("navHilfe").href = `hilfe.html?lang=${lang}`;
+      document.getElementById("navDisclaimer").href = `disclaimer.html?lang=${lang}`;
+
+      document.getElementById("langSelector").value = lang;
+      document.getElementById("langSelector").addEventListener("change", (e) => {
+        const newLang = e.target.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", newLang);
+        window.location.href = url.toString();
+      })
     }
 
     window.addEventListener("DOMContentLoaded", applyTranslation);
