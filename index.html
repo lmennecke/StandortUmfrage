@@ -27,21 +27,23 @@
   </nav>
   <h2 id="header" style="text-align:center;">Standort Umfrage</h2>
   <h3 id="labelSpielername" style="text-align:center;">Gib Deinen Spielernamen an</h3>
-  <div style="text-align:center; margin-bottom:10px;">
+  <div class="input-row">
+    <div style="text-align:center; margin-bottom:10px;">
      <label id="labelSpielernameInput" for="spielerName">Spielername: 
        <input type="text" id="spielerName" placeholder="z.B. Runner" required />
      </label>
+    </div>
+    <div style="text-align:center; margin-bottom:10px;">
+      <label id="labelSpielAuswahl" for="spiele">Welche Spiele spielst du? 
+        <select id="spiele" required>
+          <option value="">Bitte wählen</option>
+          <option value="AM">AM</option>
+          <option value="SSM">SSM</option>
+          <option value="AM & SSM">AM & SSM</option>
+        </select>
+      </label>
+    </div>
   </div>
-  <div style="text-align:center; margin-bottom:10px;">
-  <label id="labelSpielAuswahl" for="spiele">Welche Spiele spielst du? 
-    <select id="spiele" required>
-      <option value="">Bitte wählen</option>
-      <option value="AM">AM</option>
-      <option value="SSM">SSM</option>
-      <option value="AM & SSM">AM & SSM</option>
-    </select>
-  </label>
-</div>
   <h3 id="labelStandort" style="text-align:center;">Klicke deinen Standort ungefähr an</h3>
   <div id="map"></div>
   <div style="text-align:center; margin: 10px;">
