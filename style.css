@@ -210,7 +210,7 @@ nav select option {
 /* Hero-Header */
 .hero {
   position: relative;
-  background: url('images/laufbahn.jpg') center/cover no-repeat;
+  background: url('images/laufbahn.png') center/cover no-repeat;
   height: 250px;
   display: flex;
   align-items: center;
