@@ -11,12 +11,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1 class="hero-title" data-i18n="hero_title">Willkommen zur Standort-Umfrage</h1>
-      <p class="hero-subtitle" data-i18n="hero_subtitle">Für alle Online-Leichtathletik-Spieler</p>
-    </div>
-  </header>
   <nav>
      <div class="topnav">
        <a id="navStart" href="index.html" class="menuactive">Start</a>
@@ -32,6 +26,12 @@
        </span>
      </div>
   </nav>
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1 class="hero-title" data-i18n="hero_title">Willkommen zur Standort-Umfrage</h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Für alle Online-Leichtathletik-Spieler</p>
+    </div>
+  </header>
   <h2 id="header" style="text-align:center;">Standort Umfrage</h2>
   <h3 id="labelSpielername" style="text-align:center;">Gib Deinen Spielernamen an</h3>
   <div class="input-row">
@@ -131,6 +131,9 @@ function setLanguage(lang) {
   document.getElementById("navHilfe").textContent = t.help;
   document.getElementById("navDisclaimer").textContent = t.disclaimer;
   document.getElementById("languageLabel").textContent = t.language + ":";
+  document.getElementById("hero_title").textContent = t.start;
+  document.getElementById("hero_subtitle").textContent = t.start;
+  
 
   document.getElementById('header').textContent = t.header;
   document.getElementById('labelSpielername').textContent = t.labelSpielername;
