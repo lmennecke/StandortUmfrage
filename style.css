@@ -97,8 +97,8 @@ nav {
   left: 0;
   right: 0;
   /*background-color: #f8f8f8;*/
-  background: rgba(20, 20, 20, 0.6);
-  border-bottom: 1px solid #ccc;
+  background: rgba(60, 60, 60, 0.5)
+  /*border-bottom: 1px solid #ccc;*/
   padding: 10px;
   display: flex;
   justify-content: space-between;
