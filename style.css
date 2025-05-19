@@ -1,147 +1,191 @@
-/* === Grundlegende Einstellungen === */
-:root {
-  --primary: #007BFF;
-  --secondary: #FF5722;
-  --background: #F5F5F5;
-  --text: #222;
-  --accent: #4CAF50;
-  --error: #F44336;
-  --nav-height: 60px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  margin: 20px;
+  margin-top: 90px; /* Platz für die feste Navigationsleiste */
+  padding: 0;
 }
 
-/* === Navigation === */
-nav.navbar {
-  position: sticky;
-  top: 0;
-  height: var(--nav-height);
-  background-color: var(--primary);
-  color: white;
+#map {
+  height: 65vh;
+  width: 65vw;
+  margin: auto;
+}
+
+#info {
+  padding: 20px;
+  display: none;
+}
+
+#status {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#debug {
+  text-align: left;
+  color: red;
+  font-size: 0.9em;
+  display: none;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-  z-index: 1000;
+  padding: 0px;
+  width: 98%;
 }
 
-.nav-left {
-  font-weight: 600;
-  font-size: 1.2rem;
+.topnav a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.nav-right {
+.topnav a.menuactive {
+  font-weight: bold;
+  color: #e2e2e2;
+  text-decoration: none;
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.topnav a:hover {
+  background-color: #575757;
+  color: white;
+}
+
+.language-select {
+  color: white;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  margin-right: 10px;
+}
+
+.language-select select {
+  margin-left: 5px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  width: 98%;
 }
 
 .nav-link {
   color: white;
-  text-decoration: none;
-  padding: 0.5rem;
-  transition: background 0.3s;
+  /* Weitere Stildefinitionen */
 }
 
-.nav-link:hover,
-.nav-link.active {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+nav .left,
+nav .right {
+  display: flex;
+  gap: 10px;
 }
 
-.lang-dropdown {
-  background: transparent;
+.input-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 600px) {
+  .input-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .input-row label {
+    margin: 0 10px;
+  }
+}
+
+.directions .indicator {
+  position: absolute;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-radius: 3px;
+  font-size: 0.9em;
+  z-index: 1000;
+  display: none;
+}
+
+.indicator.top {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator.bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator.left {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.indicator.right {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.direction-arrow {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(220,60,70,0.6);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  z-index: 1000;
+  cursor: default;
+  user-select: none;
+}
+
+.direction-arrow.top { top: 10px; left: 50%; transform: translateX(-50%); }
+.direction-arrow.bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+.direction-arrow.left { left: 10px; top: 50%; transform: translateY(-50%); }
+.direction-arrow.right { right: 10px; top: 50%; transform: translateY(-50%); }
+
+
+nav select {
+  background-color: transparent;
   color: white;
   border: none;
-  font-size: 1rem;
-  cursor: pointer;
+  padding: 5px;
+  font-size: 1em;
   appearance: none;
-  padding: 0.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-/* === Hauptinhalt === */
-main {
-  flex: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* === Formularbereich === */
-.form-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-section label {
-  flex: 1 1 200px;
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-}
-
-.form-section input,
-.form-section select {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* === Kartenbereich === */
-#map {
-  width: 100%;
-  height: 500px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* === Statusbereich === */
-.status {
-  padding: 1rem;
-  background-color: var(--accent);
+nav select option {
+  background-color: #333;
   color: white;
-  border-radius: 4px;
-  margin-top: 1rem;
-}
-
-/* === Footer === */
-footer {
-  background-color: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-}
-
-/* === Medienabfragen === */
-@media (max-width: 768px) {
-  .form-section {
-    flex-direction: column;
-  }
-
-  .nav-right {
-    flex-direction: column;
-    align-items: flex-end;
-  }
 }
