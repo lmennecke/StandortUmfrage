@@ -10,6 +10,15 @@ body {
   padding: 0;
 }
 
+#spielerName {
+  font-size: 1.2rem;
+  padding: 6px 10px;
+}
+#spiele, #filterSpiele {
+  font-size: 1.1rem;
+  padding: 6px 10px;
+}
+
 #map {
   height: 65vh;
   width: 65vw;
