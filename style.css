@@ -224,6 +224,7 @@ nav select option {
   position: relative;
   background: url('images/hero_blurry_optimized.webp') center/cover no-repeat;
   height: 250px;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +233,7 @@ nav select option {
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.4); /* leicht abgedunkelt */
+  background-color: rgba(0, 0, 0, 0.2); /* leicht abgedunkelt */
   padding: 20px;
   text-align: center;
   color: white;
