@@ -120,6 +120,7 @@ function getLang() {
 
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
+  
   document.getElementById("navStart").textContent = t.start;
   document.getElementById("navHilfe").textContent = t.help;
   document.getElementById("navDisclaimer").textContent = t.disclaimer;
