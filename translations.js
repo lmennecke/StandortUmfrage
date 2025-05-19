@@ -1,6 +1,6 @@
 const translations = {
   de: {
-    start: "Start",
+    start: "Umfrage",
     help: "Hilfe",
     disclaimer: "Disclaimer",
     language: "Sprache",
@@ -32,7 +32,7 @@ const translations = {
     hero_subtitle: "für alle Athletic Maniacs Spieler"
   },
   en: {
-    start: "Start",
+    start: "Survey",
     help: "Help",
     disclaimer: "Disclaimer",
     language: "Language",
@@ -61,10 +61,10 @@ const translations = {
     direction_left: "Players to the West",
     direction_right: "Players to the East",
     hero_title: "Welcome to the Location Survey",
-    hero_subtitle: "For all Athletic Maniacs players"
+    hero_subtitle: fFor all Athletic Maniacs players"
   },
   fr: {
-    start: "Lancement",
+    start: "Sondage",
     help: "Aide",
     disclaimer: "Avertissement",
     language: "Langue",
@@ -93,6 +93,6 @@ const translations = {
     direction_left: "Jouers à l'ouest",
     direction_right: "Jouers à l'est",
     hero_title: "Bienvenue au sondage de localisation",
-    hero_subtitle: "Pour tous les joueurs d'Atleltic Maniacs"
+    hero_subtitle: "pour tous les joueurs d'Atleltic Maniacs"
   }
 };
