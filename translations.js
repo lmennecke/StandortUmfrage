@@ -61,7 +61,7 @@ const translations = {
     direction_left: "Players to the West",
     direction_right: "Players to the East",
     hero_title: "Welcome to the Location Survey",
-    hero_subtitle: fFor all Athletic Maniacs players"
+    hero_subtitle: "for all Athletic Maniacs players"
   },
   fr: {
     start: "Sondage",
