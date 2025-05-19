@@ -96,15 +96,15 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #f8f8f8;
-  background: rgba(0, 0, 0, 0.6);
+  /*background-color: #f8f8f8;*/
+  background: rgba(20, 20, 20, 0.6);
   border-bottom: 1px solid #ccc;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  width: 98%;
+  width: 100%;
 }
 
 .nav-link {
