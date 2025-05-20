@@ -62,7 +62,7 @@ body {
 #filterOverlay select {
   font-size: 1rem;
   padding: 4px 8px;
-  background-color: rgba(22, 22, 220, 0.5);
+  background-color: rgba(200, 200, 200, 0.7);
 }
 
 #info {
