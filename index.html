@@ -179,7 +179,13 @@ function setLanguage(lang) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap'
     }).addTo(map);
-
+    map.getContainer().addEventListener('wheel', function (e) {
+      if (e.ctrlKey) {
+        map.scrollWheelZoom.enable();
+      } else {
+        map.scrollWheelZoom.disable();
+      }
+    });
     const markerGroup = L.layerGroup().addTo(map);  // Marker-Gruppe für Reset
     map.on('moveend zoomend', () => {
       checkOffscreenMarkers(markerGroup.getLayers());
