@@ -27,6 +27,12 @@ body {
   font-size: 1.1rem;
   padding: 4px 8px;
 }
+#mapContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* oder 100%, je nach Layout */
+  margin: 0 auto;
+}
 
 #map {
   /*height: 65vh;
