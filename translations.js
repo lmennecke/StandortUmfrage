@@ -97,7 +97,7 @@ const translations = {
   }
 };
 
-const gestureTexts = {
+const gestureTexts_translations = {
   touch: {
     de: "Verwende zwei Finger, um die Karte zu bewegen",
     en: "Use two fingers to move the map",
