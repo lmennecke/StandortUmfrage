@@ -52,7 +52,7 @@ body {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background-color: rgba(200, 200, 200, 0.4); /* leicht transparent weiß */
+  background-color: rgba(200, 200, 200, 0.5); /* leicht transparent weiß */
   padding: 6px 10px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -62,6 +62,7 @@ body {
 #filterOverlay select {
   font-size: 1rem;
   padding: 4px 8px;
+  background-color: rgba(220, 220, 220, 0.5);
 }
 
 #info {
