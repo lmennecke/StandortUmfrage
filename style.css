@@ -29,12 +29,17 @@ body {
 }
 
 #map {
-  height: 65vh;
+  /*height: 65vh;
   width: 80vw;
   margin: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  overflow: hidden;*/
+
+  position: relative;
+  height: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 #filterOverlay {
