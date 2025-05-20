@@ -53,17 +53,19 @@
     </div>
   </div>
   <h3 id="labelStandort" style="text-align:center;">Klicke deinen Standort ungefähr an</h3>
-  <div id="map"></div>
-  <!-- Filter auf die Karte legen -->
-  <div id="filterOverlay">
- <!--<div style="text-align:center; margin: 10px;">-->
-     <label id="labelFilter" for="filterSpiele">Filter: 
+  <div id="mapContainer">
+    <div id="map"></div>
+      <!-- Filter auf die Karte legen -->
+      <div id="filterOverlay">
+      <!--<div style="text-align:center; margin: 10px;">-->
+        <label id="labelFilter" for="filterSpiele">Filter: 
         <select id="filterSpiele">
           <option value="AM & SSM">AM & SSM</option>
           <option value="AM">AM</option>
           <option value="SSM">SSM</option>
         </select>
-    </label>
+      </label>
+    </div>
   </div>
   <div id="directionIndicators" class="directions">
     <div id="indicatorTop" class="indicator top"></div>
