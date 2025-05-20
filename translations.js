@@ -98,19 +98,20 @@ const translations = {
 };
 
 const gestureTexts_translations = {
-  touch: {
-    de: "Verwende zwei Finger, um die Karte zu bewegen",
-    en: "Use two fingers to move the map",
-    fr: "Utilisez deux doigts pour déplacer la carte"
+  de: {
+    touch: "Verwende zwei Finger, um die Karte zu bewegen",
+    scroll: "Drücke Strg und scrolle zum Zoomen der Karte",
+    disable: "Karteninteraktion deaktiviert"
   },
-  scroll: {
-    de: "Drücke Strg und scrolle zum Zoomen der Karte",
-    en: "Hold Ctrl and scroll to zoom the map",
-    fr: "Maintenez Ctrl et faites défiler pour zoomer la carte"
+  en: {
+    touch: "Use two fingers to move the map",
+    scroll: "Hold Ctrl and scroll to zoom the map",
+    disable: "Map interaction disabled"
   },
-  disable: {
-    de: "Karteninteraktion deaktiviert",
-    en: "Map interaction disabled",
-    fr: "Interaction avec la carte désactivée"
+  fr: {
+    touch: "Utilisez deux doigts pour déplacer la carte",
+    scroll: "Maintenez Ctrl et faites défiler pour zoomer la carte",
+    disable: "Interaction avec la carte désactivée"
   }
 };
+
