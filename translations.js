@@ -93,7 +93,7 @@ const translations = {
     direction_left: "Jouers à l'ouest",
     direction_right: "Jouers à l'est",
     hero_title: "Bienvenue au sondage de localisation",
-    hero_subtitle: "pour tous les joueurs d'Atleltic Maniacs"
+    hero_subtitle: "pour tous les joueurs d'Athletic Maniacs"
   }
 };
 
