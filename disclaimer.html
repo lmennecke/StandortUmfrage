@@ -90,14 +90,14 @@
     function applyTranslation() {
       const lang = getLang();
       const t = translationsDisclaimer[lang];
+      const t_gen = translations[lang];
       document.title = t.title;
       document.getElementById("content").innerHTML = t.content;
 
-      document.getElementById("navStart").textContent = translations[lang].start;
-      document.getElementById("navHilfe").textContent = translations[lang].help;
-      document.getElementById("navDisclaimer").textContent = translations[lang].disclaimer;
-      document.getElementById("languageLabel").textContent = translations[lang].language + ":";
-
+      document.getElementById("navStart").textContent = t_gen.start;
+      document.getElementById("navHilfe").textContent = t_gen.help;
+      document.getElementById("navDisclaimer").textContent = t_gen.disclaimer;
+      document.getElementById("languageLabel").textContent = t_gen.language + ":";
       // Links aktualisieren mit Sprachparametern
       document.getElementById("navStart").href = `index.html?lang=${lang}`;
       document.getElementById("navHilfe").href = `help.html?lang=${lang}`;
@@ -110,6 +110,9 @@
         url.searchParams.set("lang", newLang);
         window.location.href = url.toString();
       })
+
+      document.getElementById("hero_title").textContent = t_gen.hero_title;
+      document.getElementById("hero_subtitle").textContent = t_gen.hero_subtitle;
 
       if (lang === "de") showEmail("emailDe");
       if (lang === "en") showEmail("emailEn");
