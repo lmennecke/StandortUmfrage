@@ -131,6 +131,85 @@ function getLang() {
    return language;
 }
 
+function recreateMapWithLanguage(lang) {
+  if (window.map) {
+    map.remove(); // alte Karte entfernen
+  }
+  window.map = L.map('map', {
+      center: [51.1657, 10.4515],
+      zoom: 6,
+      scrollWheelZoom: false,
+      gestureHandling: true,
+      gestureHandlingOptions: {
+        text: gestureTexts_translations[lang]
+      }
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(window.map);
+    window.map.getContainer().addEventListener('wheel', function (e) {
+      if (e.ctrlKey) {
+        window.map.scrollWheelZoom.enable();
+      } else {
+        window.map.scrollWheelZoom.disable();
+      }
+    });
+    const markerGroup = L.layerGroup().addTo(window.map);  // Marker-Gruppe für Reset
+    window.map.on('moveend zoomend', () => {
+      checkOffscreenMarkers(markerGroup.getLayers());
+    });
+
+    let marker;
+    window.map.on('click', function(e) {
+      const nameField = document.getElementById('spielerName');
+      if (!nameField || !nameField.value.trim()) {
+        alert(translations[savedLang].alertKeinName);
+        document.getElementById('statustxt').textContent = translations[savedLang].msgFehlenderSpielername;
+        return;
+      }
+      const nameInput = nameField.value.trim();
+      const spielAuswahlField = document.getElementById('spiele')
+      if (!spielAuswahlField || !spielAuswahlField.value.trim()) {
+        alert(translations[savedLang].alertKeineSpiele);
+        document.getElementById('statustxt').textContent = translations[savedLang].msgFehlendeSpieleAuswahl;
+        return;
+      }
+      const spielAuswahl = spielAuswahlField.value.trim();  
+  
+      const latlng = e.latlng;
+
+      if (marker) {
+        marker.setLatLng(latlng);
+      } else {
+        marker = L.marker(latlng).addTo(document.map);
+      }
+
+      document.getElementById('coords').textContent =
+        latlng.lat.toFixed(4) + ", " + latlng.lng.toFixed(4);
+  
+      const data = new URLSearchParams();
+      data.append('spielername', nameInput);
+      data.append('coords', latlng.lat + ',' + latlng.lng);
+      data.append('spiele', spielAuswahl);
+
+      document.getElementById('statustxt').textContent = translations[lang].statusSende;
+
+      fetch(formAppURL, {
+        method: 'POST',
+        //mode: 'no-cors',
+        body: data
+      }).then(() => {
+        document.getElementById('statustxt').textContent = translations[lang].statusErledigt;
+        loadData()
+        setTimeout(() => {
+          document.getElementById('statustxt').textContent = translations[lang].statusBereit;
+        }, 3000);
+      }).catch(() => {
+        document.getElementById('statustxt').textContent = translations[lang].statusFehler;
+      });
+    });
+}
+
 function setLanguage(lang) {
   const t = translations[lang] || translations.de;
   
@@ -161,6 +240,8 @@ function setLanguage(lang) {
   window.currentTranslations = t;
   localStorage.setItem('language', lang);
   savedLang = lang;
+
+  recreateMapWithLanguage(lang);
 }
 
     // Setze Sprache beim Laden
@@ -176,17 +257,14 @@ function setLanguage(lang) {
       document.getElementById('debug').style.display = 'block';
       document.getElementById('info').style.display = 'block';
     }
-    const map = L.map('map', {
+    recreateMapWithLanguage(savedLang);
+    /*const map = L.map('map', {
       center: [51.1657, 10.4515],
       zoom: 6,
       scrollWheelZoom: false,
       gestureHandling: true,
       gestureHandlingOptions: {
         text: gestureTexts_translations["de"]
-        /*text: {touch: "Verwende zwei Finger, um die Karte zu bewegen",
-              scroll: "Drücke Strg und scrolle zum Zoomen der Karte",
-              scrollMac: "Drücke ⌘ und scrolle zum Zoomen der Karte"
-              }*/
       }
     });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -269,7 +347,7 @@ const nameInput = nameField.value.trim();
   }).catch(() => {
     document.getElementById('statustxt').textContent = translations[savedLang].statusFehler;
   });
-});
+});*/
 
 function showDirectionIndicators(directions) {
   const lang = savedLang; // z. B. über ?lang= oder localStorage
@@ -288,7 +366,7 @@ function showDirectionIndicators(directions) {
 }
     
 function checkOffscreenMarkers(markers) {
-  const bounds = map.getBounds();
+  const bounds = documneg.map.getBounds();
   const directions = {
     top: false,
     bottom: false,
@@ -310,7 +388,7 @@ function checkOffscreenMarkers(markers) {
   // Alte Pfeile entfernen
   document.querySelectorAll('.direction-arrow').forEach(el => el.remove());
 
-  const mapContainer = map.getContainer();
+  const mapContainer = document.map.getContainer();
 
   Object.entries(directions).forEach(([dir, active]) => {
     if (active) {
@@ -341,7 +419,7 @@ function checkOffscreenMarkers(markers) {
      return parsed.data;
   }
     
-    function loadData() {
+function loadData() {
   fetch(csvURL)
     .then(res => res.text())
     .then(csvText => {
