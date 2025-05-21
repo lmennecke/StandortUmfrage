@@ -176,14 +176,14 @@ function setLanguage(lang) {
       document.getElementById('debug').style.display = 'block';
       document.getElementById('info').style.display = 'block';
     }
-
+    alert(gestureTexts_translations["de"]);
     const map = L.map('map', {
       center: [51.1657, 10.4515],
       zoom: 6,
       scrollWheelZoom: false,
       gestureHandling: true,
       gestureHandlingOptions: {
-        text: gestureTexts_translations['de']
+        text: gestureTexts_translations["de"]
         /*text: {touch: "Verwende zwei Finger, um die Karte zu bewegen",
               scroll: "Drücke Strg und scrolle zum Zoomen der Karte",
               scrollMac: "Drücke ⌘ und scrolle zum Zoomen der Karte"
