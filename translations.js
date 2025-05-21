@@ -101,16 +101,19 @@ const gestureTexts_translations = {
   de: {
     touch: "Verwende zwei Finger, um die Karte zu bewegen",
     scroll: "Drücke Strg und scrolle zum Zoomen der Karte",
+    scrollMac: "Drücke ⌘ und scrolle zum Zoomen der Karte",
     disable: "Karteninteraktion deaktiviert"
   },
   en: {
     touch: "Use two fingers to move the map",
     scroll: "Hold Ctrl and scroll to zoom the map",
+    scrollMac: "Hold ⌘ and scroll to zoom the map",
     disable: "Map interaction disabled"
   },
   fr: {
     touch: "Utilisez deux doigts pour déplacer la carte",
     scroll: "Maintenez Ctrl et faites défiler pour zoomer la carte",
+    scrollMac: "Maintenez ⌘ et faites défiler pour zoomer la carte",
     disable: "Interaction avec la carte désactivée"
   }
 };
