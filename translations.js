@@ -77,7 +77,7 @@ const translations = {
     optionAM: "AM",
     optionSSM: "SSM",
     optionAMundSSM: "AM & SSM",
-    labelStandort: "Cliquez approximativement sur votre emplacement",
+    labelStandort: "Clique approximativement sur ta position",
     labelFilter: "Filtrer:",
     status: "Statut:",
     statusBereit: "Prêt",
