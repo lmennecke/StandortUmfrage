@@ -182,11 +182,11 @@ function setLanguage(lang) {
       scrollWheelZoom: false,
       gestureHandling: true,
       gestureHandlingOptions: {
-        text: gestureTexts_translations["de"]
-        /*text: {touch: "Verwende zwei Finger, um die Karte zu bewegen",
+        /*text: gestureTexts_translations["de"]*/
+        text: {touch: "Verwende zwei Finger, um die Karte zu bewegen",
               scroll: "Drücke Strg und scrolle zum Zoomen der Karte",
               scrollMac: "Drücke ⌘ und scrolle zum Zoomen der Karte"
-              }*/
+              }
       }
     });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
