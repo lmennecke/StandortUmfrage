@@ -31,7 +31,7 @@
   <script>
     const translationsDisclaimer = {
       de: {
-        title: "Haftungsausschluss nd Datenschutz",
+        title: "Haftungsausschluss und Datenschutz",
         back: "Zurück zur Hauptseite",
         content: `
         
@@ -61,13 +61,13 @@ Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend ent
 <p>Diese Webseite ermöglicht den Teammitgliedern dem Team mitzuteilen, in welcher Region jemand lebt.
 Es obliegt dem Teammitglied, in welcher Genauigkeit es diese Information angeben möchte.
 Die bereitgestellten Informationen wie Spielername, Spielzuordnung und Heimatregion in diesem Umfragedienst werden als mit einem Link öffentlich geteiltes Google Sheet auf einem Google Account gespeichert.
-Da diese Google Url im JavaScript Code dieser Webseite eingebettet ist, und diese WebSeite öffentlich ist, ist es theroetisch möglich, dass auch dem Team fremde Dritte diese Informationen einsehen könnten.
+Da diese Google Url im JavaScript Code dieser Webseite eingebettet ist, und diese WebSeite öffentlich ist, ist es theoretisch möglich, dass auch dem Team fremde Dritte diese Informationen einsehen könnten.
 Der Speicherort der Datenbankdatei auf dem Google Account kann außerhalb der EU liegen.
 </p>
 <h3>Mitwirkungspflicht</h3>
-<p>Aus Gründen des Schutzes der eigenen Privatsphäre und wegen des technischen Sachverhslts der quasi öffentlichen Speicherung sind die Teammitglieder angehalten der Regionsangabe nur grob nachzukommen, 
+<p>Aus Gründen des Schutzes der eigenen Privatsphäre und wegen des technischen Sachverhalts der quasi öffentlichen Speicherung sind die Teammitglieder angehalten der Regionsangabe nur grob nachzukommen, 
 also insbesondere nicht die genau Wohnadresse auszuwählen.</p>
-<p>Teammitglieder werden genauso gebeten, die Angaben der Mitspieler auch nur als solche groben Angaben zu verstehen und die Positionsauswahl als konkrete mit der Person verbundene Lokation zu interpretieren.
+<p>Teammitglieder werden genauso gebeten, die Angaben der Mitspieler auch nur als solche groben Angaben zu verstehen und die Positionsauswahl nicht als konkrete mit der Person verbundene Lokation zu interpretieren.
 </p>
 <h3>Datenschutz & Kontakt</h3>
 <p>Bei Fragen zu Inhalten und zum Datenschutz oder dem Wunsch, dass Inhalte und Datenbank-Einträge gelöscht werden sollen, kontaktiere mich bitte im Spiel oder per E-Mail.</p>
@@ -75,14 +75,45 @@ also insbesondere nicht die genau Wohnadresse auszuwählen.</p>
         `
       },
       en: {
-        title: "Disclaimer",
+        title: "Disclaimer and Privacy",
         back: "Back to main page",
         content: `
-          <h2>Disclaimer</h2>
-          <p>This website is for demonstration purposes only.</p>
-          <p>No responsibility is taken for the accuracy, timeliness, or completeness of the information provided.</p>
-          <h3>Privacy & Contact</h3>
-          <p>If you have questions about data privacy or want your entry removed, please contact me by email.</p>
+<h2>Disclaimer</h2>
+<p>This website is for the exclusive private use of the team members of the Athletic Maniacs club in the game Athletics Mania and Summer Sport Mania.
+No commercial services are offered, nor is the content intended for commercial use.</p
+<p>The private user group is limited exclusively to the team members of the Athletic Maniacs club.</p>
+
+<h3>Liability for content</h3>
+<p>As a service provider, we are responsible for our own content on these pages in accordance with Section 7 (1) of the German Telemedia Act (TMG). 
+However, according to Sections 8 to 10 TMG, as a service provider we are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+
+<p>Obligations to remove or block the use of information in accordance with general legislation remain unaffected by this. 
+However, liability in this respect is only possible from the time of knowledge of a specific infringement. As soon as we become aware of such legal violations, we will remove this content immediately.</p
+
+<h3>Liability for links</h3>
+<p>The website may contain links to external third-party websites over whose content we have no influence. 
+Therefore, we cannot accept any liability for this third-party content. 
+The respective provider or operator of the pages is always responsible for the content of the linked pages. 
+The linked pages were checked for possible legal violations at the time of linking. 
+Illegal content was not recognisable at the time of linking.<p
+
+<p>A permanent control of the content of the linked pages is not reasonable without concrete evidence of an infringement. 
+If we become aware of any legal infringements, we will remove such links immediately.<p
+
+<h3>Details on data storage</h3>
+<p>This website allows team members to tell the team in which region someone lives.
+It is up to the team member to decide how accurate they want to provide this information.
+The information provided such as player name, game assignment and home region in this survey service is stored as a Google Sheet shared publicly with a link on a Google Account.
+Since this Google Url is embedded in the JavaScript code of this website and this website is public, it is theoretically possible that third parties outside the team could also view this information.
+The storage location of the database file on the Google account may be outside the EU.
+</p>
+<h3>Obligation to cooperate</h3>
+<p>For reasons of protecting their own privacy and due to the technical circumstances of quasi-public storage, team members are required to only roughly comply with the region information, 
+i.e. in particular not to select the exact residential address.</p> <p
+<p>Team members are also asked to understand the information provided by the other players only as such rough information and not to interpret the position selection as a specific location associated with the person.
+</p>
+<h3>Privacy & Contact</h3>
+<p>If you have any questions about content and data protection or wish to have content and database entries deleted, please contact me in-game or by email.</p>
           <p id="emailEn"></p>
         `
       },
@@ -90,11 +121,42 @@ also insbesondere nicht die genau Wohnadresse auszuwählen.</p>
         title: "Avertissement",
         back: "Retour à la page principale",
         content: `
-          <h2>Avertissement</h2>
-          <p>Ce site est uniquement à des fins de démonstration.</p>
-          <p>Aucune responsabilité n'est assumée quant à l'exactitude, l'actualité ou l'exhaustivité des informations fournies.</p>
-          <h3>Protection des données & Contact</h3>
-          <p>Si vous avez des questions concernant la protection des données ou si vous souhaitez que votre entrée soit supprimée, veuillez me contacter par e-mail.</p>
+<h2>Avertissement</h2
+<p>Diese Webseite dient der ausschließlich privaten Nutzung der Teammitglieder des Vereins Athletic Maniacs im Spiel Athletics Mania und Summer Sport Mania.
+Es werden weder kommerzielle Dienste angeboten, noch sind die Inhalte für eine kommerzielle Nutzung vorgesehen.</p>
+<p>Der private Nutzerkreis beschränkt sich ausschließlich auf die Teammitglieder des Vereins Athletic Maniacs.</p>
+
+<h3>Haftung für Inhalte</h3>
+<p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. 
+Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+<p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. 
+Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+<h3>Haftung für Links</h3>
+<p>Die Webseite enthält evtl. Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. 
+Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. 
+Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. 
+Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. 
+Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.<p>
+
+<p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. 
+Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.<p>
+
+<h3>Details zur Datenspeicherung</h3>
+<p>Diese Webseite ermöglicht den Teammitgliedern dem Team mitzuteilen, in welcher Region jemand lebt.
+Es obliegt dem Teammitglied, in welcher Genauigkeit es diese Information angeben möchte.
+Die bereitgestellten Informationen wie Spielername, Spielzuordnung und Heimatregion in diesem Umfragedienst werden als mit einem Link öffentlich geteiltes Google Sheet auf einem Google Account gespeichert.
+Da diese Google Url im JavaScript Code dieser Webseite eingebettet ist, und diese WebSeite öffentlich ist, ist es theoretisch möglich, dass auch dem Team fremde Dritte diese Informationen einsehen könnten.
+Der Speicherort der Datenbankdatei auf dem Google Account kann außerhalb der EU liegen.
+</p>
+<h3>Mitwirkungspflicht</h3>
+<p>Aus Gründen des Schutzes der eigenen Privatsphäre und wegen des technischen Sachverhalts der quasi öffentlichen Speicherung sind die Teammitglieder angehalten der Regionsangabe nur grob nachzukommen, 
+also insbesondere nicht die genau Wohnadresse auszuwählen.</p>
+<p>Teammitglieder werden genauso gebeten, die Angaben der Mitspieler auch nur als solche groben Angaben zu verstehen und die Positionsauswahl nicht als konkrete mit der Person verbundene Lokation zu interpretieren.
+</p>
+<h3>Datenschutz & Kontakt</h3>
+<p>Bei Fragen zu Inhalten und zum Datenschutz oder dem Wunsch, dass Inhalte und Datenbank-Einträge gelöscht werden sollen, kontaktiere mich bitte im Spiel oder per E-Mail.</p>
           <p id="emailFr"></p>
         `
       }
