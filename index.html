@@ -135,14 +135,18 @@ function recreateMapWithLanguage(lang) {
   /*if (window.map) {
     window.map.remove(); // alte Karte entfernen
   }*/
-  const mapContainer = document.getElementById('map');
+  /*const mapContainer = document.getElementById('map');
   if (window.map && window.map.remove) {
     window.map.remove(); // alte Karte zerstören
     if (mapContainer) {
       mapContainer._leaflet_id = null;
     }
-  }
+  }*/
   if (mapContainer) {
+    const oldContainer = document.getElementById('map');
+    const newContainer = oldContainer.cloneNode(false);
+    oldContainer.parentNode.replaceChild(newContainer, oldContainer);
+
     window.map = L.map('map', {
       center: [51.1657, 10.4515],
       zoom: 6,
