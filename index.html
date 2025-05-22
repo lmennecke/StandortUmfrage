@@ -155,7 +155,6 @@ function recreateMapWithLanguage(lang) {
         gestureHandlingOptions: {text: gestureTexts_translations[lang] }
       });
     }
-  }, 100); // check every 100ms
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
@@ -220,6 +219,7 @@ function recreateMapWithLanguage(lang) {
       document.getElementById('statustxt').textContent = translations[lang].statusFehler;
     });
   });
+  }, 100); // check every 100ms
 }
 
 function setLanguage(lang) {
