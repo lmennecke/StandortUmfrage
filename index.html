@@ -192,7 +192,7 @@ function recreateMapWithLanguage(lang) {
     if (marker) {
       marker.setLatLng(latlng);
     } else {
-      marker = L.marker(latlng).addTo(document.map);
+      marker = L.marker(latlng).addTo(window.map);
     }
 
     document.getElementById('coords').textContent =
