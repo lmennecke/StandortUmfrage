@@ -240,6 +240,7 @@ function setLanguage(lang) {
 
   recreateMapWithLanguage(lang);
 }
+    let map;
 
     // Setze Sprache beim Laden
     let savedLang = getLang();
@@ -254,7 +255,7 @@ function setLanguage(lang) {
       document.getElementById('debug').style.display = 'block';
       document.getElementById('info').style.display = 'block';
     }
-    let map;
+    
     //recreateMapWithLanguage(savedLang);
     /*const map = L.map('map', {
       center: [51.1657, 10.4515],
