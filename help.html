@@ -75,6 +75,35 @@
       }
     };
 
+  const translationsHelpNew = {
+  de: {
+    hilfeUeberschrift: "Hilfe zur Anwendung",
+    spielernameEingabe: "Trage hier deinen Spielernamen ein, um dich zu identifizieren.",
+    spielauswahl: "Wähle aus, welche Spiele du spielst (AM, SSM oder beide).",
+    standortWählen: "Klicke auf die Karte, um deinen ungefähren Standort zu markieren.",
+    filter: "Nutze die Filter, um die angezeigten Marker nach Spieltyp zu filtern.",
+    statusanzeige: "Zeigt den aktuellen Status deiner Eingabe und Übermittlung an."
+  },
+  en: {
+    hilfeUeberschrift: "Help for the application",
+    spielernameEingabe: "Enter your player name to identify yourself.",
+    spielauswahl: "Select which games you play (AM, SSM, or both).",
+    standortWählen: "Click on the map to mark your approximate location.",
+    filter: "Use filters to show markers for selected game types.",
+    statusanzeige: "Shows the current status of your input and submission."
+  },
+  fr: {
+    hilfeUeberschrift: "Aide pour l'application",
+    spielernameEingabe: "Saisissez votre nom de joueur pour vous identifier.",
+    spielauswahl: "Sélectionnez les jeux auxquels vous participez (AM, SSM ou les deux).",
+    standortWählen: "Cliquez sur la carte pour marquer votre position approximative.",
+    filter: "Utilisez les filtres pour afficher les marqueurs selon le jeu.",
+    statusanzeige: "Affiche l'état actuel de votre saisie et de l'envoi."
+  }
+};
+
+function getLa
+
     function getLang() {
       const params = new URLSearchParams(window.location.search);
       const lang = params.get("lang");
@@ -84,6 +113,7 @@
     function applyTranslation() {
       const lang = getLang();
       const t = translationsHelp[lang];
+      const t_new = translationsHelpNew[lang];
       const t_gen = translations[lang];
       document.title = t.title
       document.getElementById("content").innerHTML = t.content;
@@ -108,6 +138,13 @@
 
       document.getElementById("hero_title").textContent = t_gen.hero_title;
       document.getElementById("hero_subtitle").textContent = t_gen.hero_subtitle;
+
+      document.getElementById('hilfeUeberschrift').textContent = t_new.hilfeUeberschrift;
+      document.getElementById('spielernameEingabe').textContent = t_new.spielernameEingabe;
+      document.getElementById('spielauswahl').textContent = t_new.spielauswahl;
+      document.getElementById('standortWählen').textContent = t_new.standortWählen;
+      document.getElementById('filter').textContent = t_new.filter;
+      document.getElementById('statusanzeige').textContent = t_new.statusanzeige;
     }
 
     window.addEventListener("DOMContentLoaded", applyTranslation);
