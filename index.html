@@ -142,19 +142,21 @@ function recreateMapWithLanguage(lang) {
       mapContainer._leaflet_id = null;
     }
   }*/
-  if (mapContainer) {
-    const oldContainer = document.getElementById('map');
-    const newContainer = oldContainer.cloneNode(false);
-    oldContainer.parentNode.replaceChild(newContainer, oldContainer);
+  const checkExist = setInterval(() => {
+    const container = document.getElementById('map');
+    if (container) {
+      clearInterval(checkExist);
+      container._leaflet_id = null;
+      window.map = L.map('map', {
+        center: [51.1657, 10.4515],
+        zoom: 6,
+        scrollWheelZoom: false,
+        gestureHandling: true,
+        gestureHandlingOptions: {text: gestureTexts_translations[lang] }
+      });
+    }
+  }, 100); // check every 100ms
 
-    window.map = L.map('map', {
-      center: [51.1657, 10.4515],
-      zoom: 6,
-      scrollWheelZoom: false,
-      gestureHandling: true,
-      gestureHandlingOptions: {text: gestureTexts_translations[lang] }
-    });
-  }
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
   }).addTo(window.map);
