@@ -82,6 +82,10 @@
     spielauswahl: "Wähle aus, welche Spiele du spielst (AM, SSM oder beide).",
     standortWahl: "Klicke auf die Karte, um deinen ungefähren Standort zu markieren.",
     filter: "Nutze die Filter, um die angezeigten Marker nach Spieltyp zu filtern.",
+    kartenlegende: `<p>Nach Deiner Standortauswahl wird eine blaue Nadel zur Kontrolle angezeigt.
+       Für jeden Spieler wird entsprechend der ausgewählten Spiele eine Farbmaekierungngesetzt. 
+       Eine blaue Markierung steht für AM, eine orangene für SSM, und eine grüne Färbung represetiert einen Spieler, 
+       der AM und SSM spielt.<p>`,
     statusanzeige: "Zeigt den aktuellen Status deiner Eingabe und Übermittlung an."
   },
   en: {
@@ -142,6 +146,7 @@
       document.getElementById('spielauswahl').textContent = t_new.spielauswahl;
       document.getElementById('standortWahl').textContent = t_new.standortWahl;
       document.getElementById('filter').textContent = t_new.filter;
+      document.getElementById('kartenlegende').textContent = t_new.kartenlegende;
       document.getElementById('statusanzeige').textContent = t_new.statusanzeige;
     }
 
