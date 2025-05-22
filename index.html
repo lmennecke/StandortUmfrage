@@ -132,16 +132,23 @@ function getLang() {
 }
 
 function recreateMapWithLanguage(lang) {
-  if (window.map) {
+  /*if (window.map) {
     window.map.remove(); // alte Karte entfernen
+  }*/
+  if (window.map && window.map.remove) {
+    window.map.remove(); // alte Karte zerstören
   }
-  window.map = L.map('map', {
+
+  const mapContainer = document.getElementById('map');
+  if (mapContainer) {
+    window.map = L.map('map', {
       center: [51.1657, 10.4515],
       zoom: 6,
       scrollWheelZoom: false,
       gestureHandling: true,
       gestureHandlingOptions: {text: gestureTexts_translations[lang] }
-  });
+    });
+  }
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
   }).addTo(window.map);
