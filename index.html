@@ -166,7 +166,7 @@ function recreateMapWithLanguage(lang) {
       window.map.scrollWheelZoom.disable();
     }
   });
-  const markerGroup = L.layerGroup().addTo(window.map);  // Marker-Gruppe für Reset
+  markerGroup = L.layerGroup().addTo(window.map);  // Marker-Gruppe für Reset
   window.map.on('moveend zoomend', () => {
     checkOffscreenMarkers(markerGroup.getLayers());
   });
@@ -274,6 +274,7 @@ function setLanguage(lang) {
       document.getElementById('debug').style.display = 'block';
       document.getElementById('info').style.display = 'block';
     }
+    let markerGroup;
     
     //recreateMapWithLanguage(savedLang);
     /*const map = L.map('map', {
