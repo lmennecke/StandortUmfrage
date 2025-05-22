@@ -315,7 +315,7 @@ nav select option {
 }
 
 .hilfe-icon {
-  width: 48px;
-  height: 48px;
+  width: 300px;
+  height: 200px;
   object-fit: contain;
 }
