@@ -380,7 +380,7 @@ function showDirectionIndicators(directions) {
 }
     
 function checkOffscreenMarkers(markers) {
-  const bounds = documneg.map.getBounds();
+  const bounds = window.map.getBounds();
   const directions = {
     top: false,
     bottom: false,
@@ -402,7 +402,7 @@ function checkOffscreenMarkers(markers) {
   // Alte Pfeile entfernen
   document.querySelectorAll('.direction-arrow').forEach(el => el.remove());
 
-  const mapContainer = document.map.getContainer();
+  const mapContainer = window.map.getContainer();
 
   Object.entries(directions).forEach(([dir, active]) => {
     if (active) {
