@@ -133,7 +133,7 @@ function getLang() {
 
 function recreateMapWithLanguage(lang) {
   if (window.map) {
-    map.remove(); // alte Karte entfernen
+    window.map.remove(); // alte Karte entfernen
   }
   window.map = L.map('map', {
       center: [51.1657, 10.4515],
