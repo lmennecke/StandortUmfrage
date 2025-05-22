@@ -171,6 +171,10 @@ function recreateMapWithLanguage(lang) {
     checkOffscreenMarkers(markerGroup.getLayers());
   });
 
+  loadData(); // Erste Ladung
+  setInterval(loadData, 20000); // Alle 60 Sekunden neu laden
+  document.getElementById('filterSpiele').addEventListener('change', loadData);
+
   let marker;
   window.map.on('click', function(e) {
     const nameField = document.getElementById('spielerName');
