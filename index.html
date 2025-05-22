@@ -138,7 +138,7 @@ function recreateMapWithLanguage(lang) {
   const mapContainer = document.getElementById('map');
   if (window.map && window.map.remove) {
     window.map.remove(); // alte Karte zerstören
-    if (container) {
+    if (mapContainer) {
       mapContainer._leaflet_id = null;
     }
   }
