@@ -101,8 +101,8 @@
 
           <h2>Short description</h2>
           <ul>
-            <li>Enter your player name.</li>
-            <li>Select the games you play.</li>
+            <li>Enter your player name.[mandatory]</li>
+            <li>Select the games you play.[mandatory]</li>
             <li>Click the map to set your approximate location.</li>
             <li>Your marker will be saved and displayed.</li>
           </ul>
@@ -125,8 +125,8 @@
           
           <h2>Brève description</h2>
           <ul>
-            <li>Entre ton nom de joueur.</li>
-            <li>Sélectionne les jeux auxquels tu joues.</li>
+            <li>Entre ton nom de joueur.[obligatoire]</li>
+            <li>Sélectionne les jeux auxquels tu joues.[obligatoire]</li>
             <li>Clique sur la carte pour indiquer ta position approximative.</li>
             <li>Ton marqueur sera enregistré et affiché.</li>
           </ul>
@@ -139,8 +139,12 @@
   const translationsHelpNew = {
   de: {
     hilfeUeberschrift: "Hilfe zur Anwendung",
-    spielernameEingabe: "Trage hier deinen Spielernamen ein, um dich zu identifizieren.",
-    spielauswahl: "Wähle aus, welche Spiele du spielst (AM, SSM oder beide).",
+    spielernameEingabe: `
+      <p>Trage hier Deinen Spielernamen ein, um Dich zu identifizieren. [Pflicht]</p>
+      <p>Wenn Du später noch einmal überprüfen möchtest, welche Position Du eingeben hast, 
+      kannst Du einfach Deinen Namen hier eintragen, und Dein Markee wird hervorgehoben.</p>
+    `,
+    spielauswahl: "Wähle aus, welche Spiele du spielst (AM, SSM oder beide).[Pflicht]",
     standortWahl: "Klicke auf die Karte, um deinen ungefähren Standort zu markieren.",
     filter: "Nutze die Filter, um die angezeigten Marker nach Spieltyp zu filtern.",
     kartenlegende: `<p>Nach Deiner Standortauswahl wird eine blaue Nadel zur Kontrolle angezeigt.<p>
@@ -169,7 +173,11 @@
   },
   fr: {
     hilfeUeberschrift: "Aide pour l'application",
-    spielernameEingabe: "Saisissez votre nom de joueur pour vous identifier.",
+    spielernameEingabe: `
+      <p>Saisissez votre nom de joueur pour vous identifier.</p>
+      <p>Si tu veux vérifier plus tard quelle position tu as saisie, 
+      tu peux simplement inscrire ton nom ici et ta marque sera mise en évidence.</p>
+    `,
     spielauswahl: "Sélectionnez les jeux auxquels vous participez (AM, SSM ou les deux).",
     standortWahl: "Cliquez sur la carte pour marquer votre position approximative.",
     filter: "Utilisez les filtres pour afficher les marqueurs selon le jeu.",
