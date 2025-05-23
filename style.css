@@ -319,3 +319,8 @@ nav select option {
   height: 200px;
   object-fit: contain;
 }
+
+.hilfe-tabelle td.trennlinie {
+  border-bottom: 1px solid #ccc; /* hellgraue feine Linie */
+  padding: 8px;
+}
