@@ -310,7 +310,7 @@ nav select option {
 }
 
 .hilfe-tabelle td {
-  vertical-align: top;
+  vertical-align: middle;
   padding: 12px;
 }
 
