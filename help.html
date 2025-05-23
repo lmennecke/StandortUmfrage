@@ -158,8 +158,12 @@
   },
   en: {
     hilfeUeberschrift: "Help for the application",
-    spielernameEingabe: "Enter your player name to identify yourself.",
-    spielauswahl: "Select which games you play (AM, SSM, or both).",
+    spielernameEingabe: `
+      <p>Enter your player name to identify yourself.[mandatory]</p>
+      <p>If you want to check again later which position you have entered, 
+      you can simply enter your name here and your markee will be highlighted.</p>
+      `,
+    spielauswahl: "Select which games you play (AM, SSM, or both).[mandatory]",
     standortWahl: "Click on the map to mark your approximate location.",
     filter: "Use filters to show markers for selected game types.",
     kartenlegende: `<p>After you have selected your location, a blue pin is displayed for you to check.
@@ -228,7 +232,7 @@
       document.getElementById("hero_subtitle").textContent = t_gen.hero_subtitle;
 
       //document.getElementById('hilfeUeberschrift').textContent = t_new.hilfeUeberschrift;
-      document.getElementById('spielernameEingabe').textContent = t_new.spielernameEingabe;
+      document.getElementById('spielernameEingabe').innerHTML = t_new.spielernameEingabe;
       document.getElementById('spielauswahl').textContent = t_new.spielauswahl;
       document.getElementById('standortWahl').textContent = t_new.standortWahl;
       document.getElementById('filter').textContent = t_new.filter;
